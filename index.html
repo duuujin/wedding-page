@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>친구 결혼 축하 페이지</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 커스텀 CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        @font-face {
+            font-family: 'OngleIpSeaBreeze';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2510-1@1.0/Ownglyph_the_sea_breeze-Rg.woff2') format('woff2');
+            font-weight: normal;
+            font-display: swap;
+        }
+
+        /* 앨범 섹션 경계 및 이미지 스타일 */
+        #album-section {
+            border-top: 2px solid rgba(0, 0, 0, 0.06);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .album-img {
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            transition: transform .18s ease, box-shadow .18s ease;
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .album-img:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* 앨범 모달: 캐러셀 스타일 화살표 사용, 투명한 버튼 */
+        #album-prev,
+        #album-next {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        /* 캐러셀 아이콘을 흰색으로 보이게 조정 */
+        #album-prev .carousel-control-prev-icon,
+        #album-next .carousel-control-next-icon {
+            width: 28px;
+            height: 28px;
+            background-size: 28px 28px;
+            /* 흰색으로 확실히 보이도록 필터 적용 및 중요도 우선 처리 */
+            filter: invert(1) brightness(2) !important;
+            background-color: transparent !important;
+        }
+
+        /* 추가: 아이콘이 검정 계열 이미지일 경우에도 흰색으로 보이게 보정 (대체방법) */
+        #album-prev .carousel-control-prev-icon::before,
+        #album-next .carousel-control-next-icon::before {
+            content: '';
+        }
+
+        #album-prev:hover,
+        #album-next:hover {
+            background: rgba(255, 255, 255, 0.06) !important;
+        }
+
+        .music-control .btn {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            color: inherit;
+        }
+
+        /* 편지 스타일 */
+        .envelope {
+            background: linear-gradient(180deg, #f8f4ea 0%, #fffdf8 100%);
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 18px;
+            position: relative;
+            overflow: hidden;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            perspective: 900px;
+            /* 3D 효과를 위한 원근 */
+        }
+
+        .envelope .cover {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, #fffef8 0%, #f6efe0 100%);
+            border-radius: 6px;
+            z-index: 2;
+            transform-origin: top center;
+            backface-visibility: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        /* 클릭 힌트 (깜빡이는 텍스트) */
+        .envelope .cover .click-hint {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1rem;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.92);
+            color: #444;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            pointer-events: none;
+            /* 클릭은 전체 카드에서 처리 */
+            z-index: 3;
+            animation: clickBlink 1.4s linear infinite;
+        }
+
+        @keyframes clickBlink {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            50% {
+                opacity: 0.15;
+                transform: translateY(-2px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .envelope .envelope-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .envelope.opening .cover {
+            animation: envelopeOpen 600ms cubic-bezier(.2, .9, .3, 1) forwards;
+        }
+
+        @keyframes envelopeOpen {
+            0% {
+                transform: rotateX(0deg);
+                opacity: 1;
+            }
+
+            70% {
+                transform: rotateX(-85deg);
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: rotateX(-95deg) translateY(-10%);
+                opacity: 0;
+            }
+        }
+
+        /* 편지 모달(종이 느낌) */
+        .letter-paper {
+            background: linear-gradient(180deg, #fff 0%, #fffefc 100%);
+            border-radius: 6px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            max-height: 70vh;
+            overflow: auto;
+            font-family: 'OngleIpSeaBreeze', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+
+        .letter-paper h3 {
+            margin-top: 0;
+        }
+
+        .letter-meta {
+            color: #6b6b6b;
+            font-size: 0.9rem;
+            margin-bottom: 12px
+        }
+
+        .letter-body {
+            white-space: pre-wrap;
+            font-size: 1rem;
+            color: #222
+        }
+
+        /* 이전/다음 버튼 작게 조정 */
+        #letter-prev,
+        #letter-next {
+            width: 40px;
+            height: 40px
+        }
+
+        /* 페이지 책 넘김(플립) 애니메이션 */
+        .flip-container {
+            perspective: 1200px;
+        }
+
+        .flip-panel {
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+        }
+
+        .flip-out {
+            animation: flipOut 600ms cubic-bezier(.2, .9, .3, 1) forwards;
+        }
+
+        .flip-in {
+            animation: flipIn 600ms cubic-bezier(.2, .9, .3, 1) forwards;
+        }
+
+        @keyframes flipOut {
+            0% {
+                transform: rotateY(0deg) translateX(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateY(-100deg) translateX(-18%) scale(0.95);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flipIn {
+            0% {
+                transform: rotateY(100deg) translateX(18%) scale(0.95);
+                opacity: 0;
+            }
+
+            100% {
+                transform: rotateY(0deg) translateX(0) scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="music-control  top-0 end-0 m-3">
+        <button id="music-btn" class="btn btn-sm btn-outline-secondary">BGM 🔊</button>
+    </div>
+
+    <!-- 배경 음악 (한 번만 재생) -->
+    <audio id="bg-music" src="music/wedding-song.mp3" autoplay loop preload="auto" playsinline></audio>
+
+    <!-- 페이지 타이틀 -->
+    <div class="flip-container">
+        <section class="hero-section text-center py-3">
+            <h1>🎉 결혼 축하해! 🎉</h1>
+            <p>초라하지만, 결혼 전에 이거 보면서 옛 생각 떠올려봐!</p>
+        </section>
+
+        <!-- 사진 슬라이드 -->
+        <section id="carousel-section" class="container py-3">
+            <div id="weddingCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                    <!-- 카드 1 -->
+                    <div class="carousel-item active">
+                        <div class="card">
+                            <img src="images/main1.jpg" class="card-img-top" alt="사진 1" data-bs-toggle="modal"
+                                data-bs-target="#modal1">
+                            <div class="card-body">
+                                <p class="card-text text-center">만남의 설렘</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 카드 2 -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="images/main2.jpg" class="card-img-top" alt="사진 2" data-bs-toggle="modal"
+                                data-bs-target="#modal2">
+                            <div class="card-body">
+                                <p class="card-text text-center">함께한 여행</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 카드 3 -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="images/main3.jpg" class="card-img-top" alt="사진 3" data-bs-toggle="modal"
+                                data-bs-target="#modal3">
+                            <div class="card-body">
+                                <p class="card-text text-center">추억의 데이트</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 카드 4 -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="images/main4.jpg" class="card-img-top" alt="사진 4" data-bs-toggle="modal"
+                                data-bs-target="#modal4">
+                            <div class="card-body">
+                                <p class="card-text text-center">즐거운 순간</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 카드 5 -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="images/main5.jpg" class="card-img-top" alt="사진 5" data-bs-toggle="modal"
+                                data-bs-target="#modal5">
+                            <div class="card-body">
+                                <p class="card-text text-center">행복한 미소</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 화살표 -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#weddingCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#weddingCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 전하고 싶은 말 페이지 넘어가기 -->
+    </div> <!-- .flip-container 닫음 -->
+
+    <!-- 추억앨범 섹션 -->
+    <section class="message-section text-center py-5">
+        <h3>행복한 결혼생활을 응원할게!</h3>
+        <p>사랑과 웃음이 가득한 가정이 되길 바랄게!</p>
+        <!-- 앨범 페이지 이동 버튼 -> SPA용 스크롤 버튼 -->
+        <button id="open-album" class="btn btn-outline-secondary mt-3">추억 앨범 보기</button>
+    </section>
+
+    <!-- 메시지 섹션 -->
+    <section class="message-section text-center py-3">
+        <h3>신혼부부에게 전하는 말</h3>
+        <p>정말 초라하게 작성한거지만, 축하의 메세지</p>
+        <!-- 앨범 페이지 이동 버튼 -> SPA용 스크롤 버튼 -->
+        <button id="open-message" class="btn btn-outline-secondary mt-4">메세지 보기</button>
+    </section>
+
+
+    <!-- 메시지 전용 페이지 (편지 목록) -->
+    <section id="message-page" class="container py-5 d-none">
+        <h2 class="mb-4 text-center">신혼부부에게 전하는 편지</h2>
+        <div id="letters-row" class="row g-3 mb-4">
+            <!-- JS가 편지 카드 생성 -->
+        </div>
+        <div class="text-center">
+            <button id="back-home" class="btn btn-outline-secondary">홈으로 돌아가기</button>
+        </div>
+    </section>
+
+    <!-- 추억 앨범 섹션 (동적 생성: 사진 2장씩 표시) -->
+    <!-- 기본적으로 페이지 로드 시 보이지 않게 함 (버튼으로 표시) -->
+    <section id="album-section" class="container py-4 d-none">
+        <h2 class="mb-3">추억 앨범</h2>
+        <div id="album-row" class="row g-3">
+            <!-- 자바스크립트로 썸네일이 여기 생성됩니다 -->
+        </div>
+        <!-- 홈으로 돌아가기 버튼 추가 -->
+        <div class="text-center mt-3">
+            <button id="back-home-album" class="btn btn-outline-secondary">홈으로 돌아가기</button>
+        </div>
+    </section>
+
+    <!-- 모달 부분 (사진 확대) -->
+    <!-- 기존 modal1~modal5 유지 (필요시 삭제 가능) -->
+
+    <!-- 앨범 갤러리 모달 (공통) -->
+    <div class="modal fade" id="albumModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0 position-relative p-0">
+                <button id="album-prev" class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y ms-2" type="button" aria-label="이전">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <img id="album-modal-img" src="" class="w-100 rounded" alt="앨범 사진">
+                <button id="album-next" class="carousel-control-next position-absolute top-50 end-0 translate-middle-y me-2" type="button" aria-label="다음">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 편지 읽기 모달 -->
+    <div class="modal fade" id="letterModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content border-0 bg-transparent">
+                <div class="position-relative">
+                    <button id="letter-prev" class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y ms-2" type="button" aria-label="이전">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="letter-paper mx-3" id="letter-modal-body">
+                        <h3 id="letter-title"></h3>
+                        <div class="letter-meta" id="letter-meta"></div>
+                        <div class="letter-body" id="letter-body"></div>
+                    </div>
+                    <button id="letter-next" class="carousel-control-next position-absolute top-50 end-0 translate-middle-y me-2" type="button" aria-label="다음">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 인트로 모달: 첫 방문 시 읽는 순서 안내 -->
+    <div class="modal fade" id="introModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">페이지 사용 안내</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+                </div>
+                <div class="modal-body">
+                    <p>이 페이지는 아래 순서로 보시면 좋아</p>
+                    <ol>
+                        <li>상단의 사진 슬라이드를 살펴봐</li>
+                        <li>"추억 앨범 보기" 버튼을 눌러 앨범으로 이동해</li>
+                        <li>앨범에서 사진을 클릭하면 확대해서 보고, 좌우 화살표로 넘겨봐</li>
+                    </ol>
+                    <div class="form-check mt-2">
+                        <input class="form-check-input" type="checkbox" value="" id="intro-no-show">
+                        <label class="form-check-label" for="intro-no-show">다시 보지 않기</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="intro-start" type="button" class="btn btn-primary">시작하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 커스텀 JS -->
+    <script src="js/script.js"></script>
+
+    <!-- 인트로 모달 표시 스크립트 (첫 방문에만 표시) -->
+    <script>
+        (function(){
+            const STORAGE_KEY = 'introSeen_v1';
+            const introModalEl = document.getElementById('introModal');
+            if(!introModalEl) return;
+            const introSeen = localStorage.getItem(STORAGE_KEY);
+            const introModal = new bootstrap.Modal(introModalEl);
+
+            // 처음 방문이면 모달 표시
+            if(!introSeen){
+                // 약간 지연시켜 부트스트랩 로드 및 렌더링 안정화
+                setTimeout(()=> introModal.show(), 200);
+            }
+
+            // 시작 버튼: '다시 보지 않기' 체크 시 로컬스토리지에 저장
+            document.getElementById('intro-start')?.addEventListener('click', ()=>{
+                const noShow = document.getElementById('intro-no-show')?.checked;
+                if(noShow) localStorage.setItem(STORAGE_KEY, 'true');
+                introModal.hide();
+            });
+
+            // 모달이 닫힐 때(단순 닫기)에도 체크박스가 선택되어 있으면 저장
+            introModalEl.addEventListener('hidden.bs.modal', ()=>{
+                const noShow = document.getElementById('intro-no-show')?.checked;
+                if(noShow) localStorage.setItem(STORAGE_KEY, 'true');
+            });
+        })();
+    </script>
+
+    <!-- SPA 스크롤 및 히스토리 처리 스크립트 -->
+    <script>
+        (function(){
+            const openAlbumBtn = document.getElementById('open-album');
+            const openMessageBtn = document.getElementById('open-message');
+            const albumSection = document.getElementById('album-section');
+            const carouselSection = document.getElementById('carousel-section');
+            const messagePage = document.getElementById('message-page');
+            const bgMusic = document.getElementById('bg-music');
+            // 상단의 CTA/섹션(.message-section)을 모아 제어
+            const messageCTAs = Array.from(document.querySelectorAll('.message-section'));
+            const heroSection = document.querySelector('.hero-section');
+             const flipContainer = document.querySelector('.flip-container');
+
+             function showHome(push = true){
+                // 페이지 타이틀 보이기
+                heroSection?.classList.remove('d-none');
+                // 상단 CTA들 보이게
+                 messageCTAs.forEach(el=>el.classList.remove('d-none'));
+
+                 // 만약 앨범이 보이는 상태에서 돌아가는 경우, 책 넘김 애니메이션 실행
+                 if(flipContainer && albumSection && !albumSection.classList.contains('d-none')){
+                     // 준비: 캐러셀 보이게 하고 패널 클래스 부여
+-                    carouselSection?.classList.remove('d-none');
++                    carouselSection?.classList.remove('d-none');
+                     carouselSection?.classList.add('flip-panel','flip-in');
+                     albumSection?.classList.add('flip-panel','flip-out');
+
+                     const onEnd = ()=>{
+                         albumSection.classList.add('d-none');
+                         albumSection.classList.remove('flip-out','flip-panel');
+                         carouselSection.classList.remove('flip-in','flip-panel');
+                         albumSection.removeEventListener('animationend', onEnd);
+                         window.scrollTo({top:0, behavior:'smooth'});
+                     };
+                     albumSection.addEventListener('animationend', onEnd);
+                 } else {
+                     // 일반 복귀: 앨범은 기본적으로 숨김으로 유지
+                     carouselSection?.classList.remove('d-none');
+                     albumSection?.classList.add('d-none');
+                     messagePage?.classList.add('d-none');
+                     window.scrollTo({top:0, behavior:'smooth'});
+                 }
+
+                 if(push) history.pushState({page:'home'}, '', '#');
+             }
+
+             function showAlbum(push = true){
+                 // 메시지 페이지 숨김 및 상단 CTA 숨김
+                 messagePage?.classList.add('d-none');
+                 messageCTAs.forEach(el=>el.classList.add('d-none'));
++                // 페이지 타이틀 보이기
++                heroSection?.classList.remove('d-none');
+
+                 // 책 넘김 애니메이션이 가능한 경우: 캐러셀에서 앨범으로 넘김
+                 if(flipContainer && carouselSection){
+                     // 준비: 앨범을 미리 보이게 하고 애니메이션 부여
+                     albumSection?.classList.remove('d-none');
+                     carouselSection.classList.add('flip-panel','flip-out');
+                     albumSection.classList.add('flip-panel','flip-in');
+
+                     const onEnd = ()=>{
+                         // 애니메이션 끝나면 캐러셀 숨기고 클래스 정리
+                         carouselSection.classList.add('d-none');
+                         carouselSection.classList.remove('flip-out','flip-panel');
+                         albumSection.classList.remove('flip-in','flip-panel');
+                         albumSection.scrollIntoView({behavior:'smooth', block:'start'});
+                         carouselSection.removeEventListener('animationend', onEnd);
+                     };
+                     // animationend는 아웃 애니메이션을 실행한 쪽에서 일어나므로 carouselSection에 바인드
+                     carouselSection.addEventListener('animationend', onEnd);
+                 } else {
+                     // 애니메이션 불가 시 일반 동작
+                     carouselSection?.classList.remove('d-none');
+                     albumSection?.classList.remove('d-none');
+                     albumSection?.scrollIntoView({behavior:'smooth', block:'start'});
+                 }
+
+                 if(push) history.pushState({page:'album'}, '', '#album');
+             }
+
+             function showMessage(push = true){
++                // 페이지 타이틀 숨기기
++                heroSection?.classList.add('d-none');
++                // 메시지 전용 페이지를 보이게 하고 다른 섹션은 숨김
++                carouselSection?.classList.add('d-none');
++                albumSection?.classList.add('d-none');
++                messagePage?.classList.remove('d-none');
+                 // 상단 CTA들 숨김
+                 messageCTAs.forEach(el=>el.classList.add('d-none'));
+                 messagePage?.scrollIntoView({behavior:'smooth', block:'start'});
+                 if(push) history.pushState({page:'message'}, '', '#message');
+             }
+
+            openAlbumBtn?.addEventListener('click', ()=> showAlbum());
+            openMessageBtn?.addEventListener('click', ()=> showMessage());
+            document.getElementById('back-home')?.addEventListener('click', ()=> showHome());
+            // 앨범 섹션 하단의 홈 버튼
+            document.getElementById('back-home-album')?.addEventListener('click', ()=> showHome());
+
+            // popstate 처리: 해시에 따라 상태 복구
+            window.addEventListener('popstate', ()=>{
+                const h = location.hash;
+                if(h === '#album') showAlbum(false);
+                else if(h === '#message') showMessage(false);
+                else showHome(false);
+            });
+
+            // 초기 로드 시 해시가 있으면 해당 위치로 처리
+            if(location.hash === '#album') showAlbum(false);
+            else if(location.hash === '#message') showMessage(false);
+
+            // 기존 BGM 토글(간단 유지)
+            const musicBtn = document.getElementById('music-btn');
+            // 버튼 텍스트 상태 반영
+            function updateMusicBtn(){
+                if(!musicBtn || !bgMusic) return;
+                // 음소거 또는 재생중이 아니면 '작게' 아이콘
+                if(bgMusic.muted || bgMusic.paused) musicBtn.textContent = 'BGM 🔈';
+                else musicBtn.textContent = 'BGM 🔊';
+            }
+
+            // 초기 상태 반영 (오디오 로드가 늦을 수 있어 약간 지연)
+            setTimeout(updateMusicBtn, 150);
+
+            musicBtn?.addEventListener('click', async ()=>{
+                if(!bgMusic) return;
+                if(bgMusic.muted){
+                    // 음소거 해제 후 재생 시도
+                    bgMusic.muted = false;
+                    try{
+                        await bgMusic.play();
+                    }catch(e){
+                        // 재생 실패 시 현재 위치 초기화 후 재시도
+                        try{ bgMusic.currentTime = 0; await bgMusic.play(); }catch(e){}
+                    }
+                } else {
+                    // 음소거 (일시정지 대신 음소거)
+                    bgMusic.muted = true;
+                }
+                updateMusicBtn();
+            });
+        })();
+    </script>
+
+    <script>
+        (function(){
+            // 기존 SPA 및 BGM 로직은 위에 그대로 유지됩니다.
+
+            // --- 썸네일 동적 생성 ---
+            // 여기에 표시할 이미지 파일 경로를 배열에 추가하세요.
+            const albumImages = [
+                'images/sub1.jpg',
+                'images/sub2.jpg',
+                'images/sub3.jpg',
+                'images/sub4.jpg',
+                'images/sub5.jpg',
+                'images/sub6.jpg',
+                'images/sub7.jpg',
+                'images/sub8.jpg',
+                'images/sub9.jpg',
+                'images/sub10.jpg',
+                'images/sub11.jpg',
+                'images/sub12.jpg',
+                'images/sub13.jpg',
+                'images/sub14.jpg',
+                'images/sub15.jpg',
+                'images/sub16.jpg',
+                'images/sub17.jpg',
+                'images/sub18.jpg',
+                'images/sub19.jpg',
+                'images/sub20.jpg',
+                'images/sub21.jpg',
+                'images/sub22.jpg',
+                'images/sub23.jpg',
+                'images/sub24.jpg',
+                'images/sub25.jpg',
+            ];
+
+            const albumRow = document.getElementById('album-row');
+            albumImages.forEach((src, idx) => {
+                const col = document.createElement('div');
+                col.className = 'col-6';
+                col.innerHTML = `<img src="${src}" class="img-fluid rounded album-img album-thumb" data-index="${idx}" alt="">`;
+                albumRow.appendChild(col);
+            });
+
+            // --- 앨범 갤러리 제어 ---
+            const albumThumbs = Array.from(document.querySelectorAll('.album-thumb'));
+            const albumThumbSrcs = albumThumbs.map(t => t.getAttribute('src'));
+            const carouselCardImgs = Array.from(document.querySelectorAll('.card .card-img-top'));
+            const carouselCardSrcs = carouselCardImgs.map(i => i.getAttribute('src'));
+            const albumModalEl = document.getElementById('albumModal');
+            const albumModalImg = document.getElementById('album-modal-img');
+            const prevBtn = document.getElementById('album-prev');
+            const nextBtn = document.getElementById('album-next');
+            let currentIndex = 0;
+            let bsAlbumModal = null;
+            // activeList: 현재 모달에서 순회할 이미지 src 배열 (기본: 앨범 썸네일)
+            let activeList = albumThumbSrcs.slice();
+
+            function openAlbumAt(index, list = activeList){
+                if(!list || !list.length) return;
+                activeList = list; // 현재 활성 목록 설정
+                currentIndex = (index + list.length) % list.length;
+                const src = list[currentIndex];
+                albumModalImg.setAttribute('src', src);
+                if(!bsAlbumModal) bsAlbumModal = new bootstrap.Modal(albumModalEl);
+                bsAlbumModal.show();
+            }
+
+            function showNext(){ openAlbumAt(currentIndex + 1, activeList); }
+            function showPrev(){ openAlbumAt(currentIndex - 1, activeList); }
+
+            // 기존 앨범 썸네일 클릭: 앨범 목록으로 연다
+            albumThumbs.forEach((thumb, idx) => {
+                thumb.style.cursor = 'pointer';
+                thumb.addEventListener('click', ()=>{
+                    openAlbumAt(idx, albumThumbSrcs);
+                });
+            });
+
+            // 캐러셀 카드(.card-img-top) 클릭 시 캐러셀 이미지 리스트만 보여주기
+            document.querySelectorAll('.card .card-img-top').forEach(imgEl => {
+                imgEl.style.cursor = 'zoom-in';
+                imgEl.addEventListener('click', (e) => {
+                    const src = imgEl.getAttribute('src');
+                    // 캐러셀 목록에서 인덱스 찾기
+                    const matchInCarousel = carouselCardSrcs.findIndex(s => s === src);
+                    if(matchInCarousel >= 0){
+                        openAlbumAt(matchInCarousel, carouselCardSrcs);
+                        return;
+                    }
+                    // 아니면 앨범 썸네일 목록에서 찾아 열기
+                    const matchIdx = albumThumbSrcs.findIndex(s => s === src);
+                    if (matchIdx >= 0) {
+                        openAlbumAt(matchIdx, albumThumbSrcs);
+                    } else {
+                        // 일치하는 항목이 없으면 현재 activeList로 표시 (기본 동작)
+                        openAlbumAt(0, [src]);
+                    }
+                });
+            });
+
+            nextBtn?.addEventListener('click', showNext);
+            prevBtn?.addEventListener('click', showPrev);
+
+            // 키보드 제어: 왼쪽/오른쪽/ESC
+            document.addEventListener('keydown', (e)=>{
+                if(!albumModalEl.classList.contains('show')) return;
+                if(e.key === 'ArrowRight') showNext();
+                else if(e.key === 'ArrowLeft') showPrev();
+                else if(e.key === 'Escape') bsAlbumModal?.hide();
+            });
+
+        })();
+    </script>
+
+    <script>
+        (function(){
+            // --- 편지 데이터(예시) ---
+            const letters = [
+                {title: '함께한 시간에', body: `기시갑혀압 순사를 앗날계샸릿어요 싲더디며, 액링다 익는으로 훅니티더에서 가까여가 나세허로부터. 윽압미잔븐 안특퇸미 멍닌거, 으칼의 아라지 됭네퍼어 기끼는. 더깁이어 열체졲스놔얀연의 하됴습도 이듸묵우피았은 송쑬다 힘자서니순에 서껸셏도. 아아를 짐말 타즣단싱은 녕오수자아, 음더 그쏘링은발훈한테 햅은애를. 미닥핬은 작자벼의 릴벼레로이니가아톻으라 떠애끄노다 미여흡흔 으쏘랄의 띡아와 바녕 아시로 다리닼루가 잉려안누으노요. 운힉항호 갈마굘체으시는 즈송실리를 익엔가아똥곤가아는 어내쿨므를 흐다가 락눌앙잖. 넶러 즎타렁다 다싱는다 떠앨런눌어허와 안긍은 즐수군보다 이힙의 셔옹나옥다. 츠오지의 있솨미하소 갈희스아이어 핀슨싑이 샌군찬홍 슨발각하다. 여앴 초셕괴가 잉시시루어야 후냐밋오니 아칵체으나 웅신노 운자로 프긴은시어 뫄족솜반겅어서 농뽀새다, 조데넬숩에. 묘시거순거생 이농데폰의 그스는 하강은 빌올다. 으댐에서 아지 인디닾토누 다거로다 믔밍즈너.`, author: '친구 A'}
+            ];
+
+            // 편지 목록 생성
+            const lettersRow = document.getElementById('letters-row');
+            letters.forEach((it, idx)=>{
+                const col = document.createElement('div');
+                col.className = 'col-12 col-md-6';
+                col.innerHTML = `
+                    <div class="envelope" data-index="${idx}">
+                        <div class="cover" aria-hidden="true"><div class="click-hint" aria-hidden="true">터치해봐!</div></div>
+                        <div class="envelope-content">
+                            <div class="from">${it.author}</div>
+                            <div class="title">${it.title}</div>
+                            <div class="preview">${it.body.replace(/\n/g, ' ').slice(0,80)}${it.body.length>80? '...':''}</div>
+                        </div>
+                    </div>
+                `;
+                lettersRow.appendChild(col);
+            });
+
+            // 모달 제어
+            const letterModalEl = document.getElementById('letterModal');
+            const letterTitle = document.getElementById('letter-title');
+            const letterMeta = document.getElementById('letter-meta');
+            const letterBody = document.getElementById('letter-body');
+            const prevBtn = document.getElementById('letter-prev');
+            const nextBtn = document.getElementById('letter-next');
+            let current = 0;
+            let bsLetter = null;
+
+            function openLetterAt(i){
+                current = (i + letters.length) % letters.length;
+                const it = letters[current];
+                letterTitle.textContent = it.title;
+                letterMeta.textContent = it.author;
+                letterBody.textContent = it.body;
+                if(!bsLetter) bsLetter = new bootstrap.Modal(letterModalEl);
+                bsLetter.show();
+            }
+
+            // 클릭하면 편지지 열리는 애니메이션 후 모달 오픈
+            lettersRow.querySelectorAll('.envelope').forEach(el=>{
+                el.style.cursor = 'pointer';
+                el.addEventListener('click', ()=>{
+                    if(el.classList.contains('opening')) return; // 중복 실행 방지
+                    el.classList.add('opening');
+
+                    // 애니메이션 끝나면 모달 오픈
+                    const done = ()=>{
+                        el.removeEventListener('animationend', done);
+                        // 애니메이션 클래스 제거하여 상태 복구
+                        el.classList.remove('opening');
+                        const idx = parseInt(el.dataset.index || '0', 10);
+                        openLetterAt(idx);
+                    };
+
+                    // 안전하게 animationend를 기다리거나 700ms 후에 강제 실행
+                    el.addEventListener('animationend', done);
+                    setTimeout(()=>{
+                        if(el.classList.contains('opening')){
+                            // 타임아웃으로 처리 (브라우저가 animationend를 발생시키지 못할 경우)
+                            el.classList.remove('opening');
+                            const idx = parseInt(el.dataset.index || '0', 10);
+                            openLetterAt(idx);
+                        }
+                    }, 700);
+                });
+            });
+
+            nextBtn?.addEventListener('click', ()=> openLetterAt(current+1));
+            prevBtn?.addEventListener('click', ()=> openLetterAt(current-1));
+
+            document.addEventListener('keydown', (e)=>{
+                if(!letterModalEl.classList.contains('show')) return;
+                if(e.key === 'ArrowRight') openLetterAt(current+1);
+                else if(e.key === 'ArrowLeft') openLetterAt(current-1);
+                else if(e.key === 'Escape') bsLetter?.hide();
+            });
+
+        })();
+    </script>
+</body>
+
+</html>
