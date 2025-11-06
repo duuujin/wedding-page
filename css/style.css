@@ -24,33 +24,6 @@ body {
   margin-bottom: 20px;
 }
 
-:root{
-  --brand: #F3A772;      /* 메인 포인트 */
-  --brand-dark: #8B5E3C; /* Hover/Active */
-  --accent: #7CA67C;     /* 보조 포인트 */
-}
-
-a, .link { color: var(--brand); }
-a:hover { color: var(--brand-dark); }
-
-.btn-primary{
-  background: var(--brand);
-  border-color: var(--brand);
-}
-.btn-primary:hover{
-  background: var(--brand-dark);
-  /* border-color: var(--brand-dark); */
-}
-
-#music-btn{
-  border-color: var(--brand);
-  color: var(--brand-dark);
-}
-#music-btn:hover{
-  background: var(--brand);
-  color: #fff;
-}
-
 /* 카드 슬라이드 */
 .card {
   border: none;
@@ -110,4 +83,245 @@ a:hover { color: var(--brand-dark); }
     flex: 1 1 calc(25% - 10px);
     max-width: 23%;
   }
+}
+
+
+
+/* === Winter Wedding Theme Add-on === */
+:root{
+  --bg: #f5f7fb;
+  --text: #2f3441;
+  --brand: #7AAAD8;
+  --brand-dark: #5A84AA;
+  --accent: #C9D6EA;
+  --gold: #C9A66B;
+}
+body{ background: var(--bg); color: var(--text); }
+a, .link{ color: var(--brand); }
+a:hover{ color: var(--brand-dark); }
+.btn-primary{ background:var(--brand); border-color:var(--brand); }
+.btn-primary:hover{ background:var(--brand-dark); border-color:var(--brand-dark); }
+
+/* Cards / album */
+.card, .album-card{
+  background: #fff; border: 1px solid #e6ecf5;
+  box-shadow: 0 12px 30px rgba(90,132,170,.15);
+}
+.album-card img{ filter: contrast(0.98) saturate(0.9) brightness(1.02); }
+
+/* Section title gold underline */
+.section-title{ font-weight:700; letter-spacing:.3px; color: var(--text); position:relative; display:inline-block; padding-bottom:10px; }
+.section-title::after{
+  content:""; position:absolute; left:50%; transform:translateX(-50%);
+  bottom:0; width:72px; height:2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Modal winter polish */
+.modal-content{
+  border:1px solid #e6ecf5;
+  box-shadow: 0 20px 60px rgba(42,66,96,.18);
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+}
+#enable-bgm{
+  background:var(--brand)!important; border-color:var(--brand)!important; color:#fff!important;
+}
+#enable-bgm:hover{
+  background:var(--brand-dark)!important; border-color:var(--brand-dark)!important;
+}
+
+/* "추억 앨범 보기" button */
+#open-album{
+  /* background:linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%); */
+  /* border:none; color:#fff; */
+  box-shadow: 0 8px 18px rgba(90,132,170,.25);
+}
+#open-album:hover{ filter: brightness(1.03); }
+
+/* Subtle frost frame */
+.album-card img{
+  position:relative; border-radius:10px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.6);
+}
+
+/* Snow overlay */
+.snow{
+  pointer-events:none; position:fixed; inset:0; overflow:hidden; z-index:1050;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, rgba(240,248,255,.95) 50%, transparent 51%),
+    radial-gradient(2px 2px at 80px 120px, rgba(240,248,255,.9) 50%, transparent 51%),
+    radial-gradient(2px 2px at 200px 80px, rgba(240,248,255,.9) 50%, transparent 51%),
+    radial-gradient(3px 3px at 300px 20px, rgba(240,248,255,.85) 50%, transparent 51%),
+    radial-gradient(3px 3px at 500px 50px, rgba(240,248,255,.85) 50%, transparent 51%);
+  background-size: 50px 50px;
+  animation-duration: 3s;
+  animation: snow-fall-sway 14s linear infinite;
+  opacity:.9;
+}
+
+@keyframes snow-fall-sway{
+  /* 각 레이어의 시작 X/Y를 다르게 해서 자연스러움 */
+  0%{
+    background-position:
+      0    -600px,
+      -60px -300px,
+      -30px -450px,
+      -90px -700px,
+      -10px -500px;
+  }
+  25%{
+    background-position:
+      50px -450px,
+      0px  -150px,
+      40px -320px,
+      -30px -520px,
+      30px -380px;
+  }
+  50%{
+    background-position:
+      -40px -300px,
+      40px   0px,
+      -60px -200px,
+      20px  -340px,
+      -20px -260px;
+  }
+  75%{
+    background-position:
+      60px -150px,
+      -30px 150px,
+      50px  -80px,
+      -40px -160px,
+      40px  -120px;
+  }
+  100%{
+    background-position:
+      0px   0px,
+      0px  300px,
+      0px  150px,
+      0px  100px,
+      0px  400px;
+  }
+}
+
+.snow { filter: drop-shadow(0 0 4px rgba(0,0,0,.25)); }
+.snow-front { filter: blur(0.2px) drop-shadow(0 0 5px rgba(0,0,0,.35)); }
+
+/* 앞쪽(전경) 눈: 더 빠르고 진하게 */
+.snow-front{
+  z-index: 1060;         /* 모달(1055)보다 살짝 뒤 or 필요에 따라 1020~1070 조절 */
+  opacity: 0.92;
+  animation-duration: 10s;    /* 기본 18s보다 빠르게 */
+  background-size: 400px 400px; /* 촘촘하게 */
+  filter: drop-shadow(0 0 5px rgba(0,0,0,.35));
+  mix-blend-mode: screen;
+  animation: snow-fall-sway-front 10s linear infinite;
+}
+
+@keyframes snow-fall-sway-front{
+  0%{
+    background-position:
+      -30px -600px,
+      40px  -300px,
+      10px  -450px,
+      -60px -700px,
+      20px  -500px;
+  }
+  25%{
+    background-position:
+      80px -450px,
+      -20px -150px,
+      70px -320px,
+      10px -520px,
+      -10px -380px;
+  }
+  50%{
+    background-position:
+      -70px -300px,
+      60px   0px,
+      -90px -200px,
+      40px  -340px,
+      10px  -260px;
+  }
+  75%{
+    background-position:
+      90px -150px,
+      -40px 150px,
+      80px  -80px,
+      -70px -160px,
+      50px  -120px;
+  }
+  100%{
+    background-position:
+      0px   0px,
+      0px  300px,
+      0px  150px,
+      0px  100px,
+      0px  400px;
+  }
+}
+
+.snow-dim{
+  position: fixed; inset: 0; z-index: 1020; pointer-events: none;
+  background: radial-gradient(circle at 50% -20%,
+              rgba(0,0,30,.10) 0%,
+              rgba(0,0,30,.08) 35%,
+              rgba(0,0,30,.06) 55%,
+              rgba(0,0,30,.03) 80%,
+              transparent 100%);
+  /* 너무 어두우면 opacity 조절 */
+  opacity: .8;
+}
+
+
+@keyframes snow-fall{
+  0%   { background-position: 0 -600px, 0 -300px, 0 -450px, 0 -700px, 0 -500px; }
+  100% { background-position: 0 0,      0 300px,  0 150px,  0 100px,  0 400px; }
+}
+
+/* 눈결정 컨테이너 */
+/* SVG 눈결정 컨테이너 */
+#flakes{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1050;   /* 필요시 1045~1060 사이 조정 */
+  overflow: hidden;
+}
+
+/* 각 눈결정 */
+.snowflake{
+  position: absolute;
+  top: -10vh;                  /* 화면 위에서 등장 */
+  width: 10px; height: 10px;   /* 기본 크기 (scale로 개별 변경) */
+  will-change: transform, opacity;
+  user-select: none;
+  opacity: 0;
+}
+
+/* SVG 공통 스타일(스트로크/글로우) */
+.snowflake svg{
+  width: 100%; height: 100%;
+  stroke: rgba(255,255,255,.95);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  filter: drop-shadow(0 0 5px rgba(0,0,0,.25));
+}
+
+/* 전경/후경 미묘한 차이 */
+.snowflake.front svg{
+  filter: drop-shadow(0 0 6px rgba(0,0,0,.35));
+}
+.snowflake.back svg{
+  opacity: .9;
+  filter: blur(.2px) drop-shadow(0 0 4px rgba(0,0,0,.25));
+}
+
+/* 낙하 + 좌우 스웨이 + 회전 */
+@keyframes fall-sway-rotate {
+  0%   { transform: translate3d(var(--x,0), -12vh, 0) rotate(0deg)   scale(var(--s,1)); opacity:0; }
+  8%   { opacity:1; }
+  50%  { transform: translate3d(calc(var(--x,0) + var(--sw,0px)), 52vh, 0) rotate(180deg) scale(var(--s,1)); }
+  100% { transform: translate3d(calc(var(--x,0) + var(--sw,0px) * 2), 108vh, 0) rotate(360deg) scale(var(--s,1)); opacity:.95; }
 }
