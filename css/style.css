@@ -24,6 +24,33 @@ body {
   margin-bottom: 20px;
 }
 
+:root{
+  --brand: #F3A772;      /* 메인 포인트 */
+  --brand-dark: #8B5E3C; /* Hover/Active */
+  --accent: #7CA67C;     /* 보조 포인트 */
+}
+
+a, .link { color: var(--brand); }
+a:hover { color: var(--brand-dark); }
+
+.btn-primary{
+  background: var(--brand);
+  border-color: var(--brand);
+}
+.btn-primary:hover{
+  background: var(--brand-dark);
+  /* border-color: var(--brand-dark); */
+}
+
+#music-btn{
+  border-color: var(--brand);
+  color: var(--brand-dark);
+}
+#music-btn:hover{
+  background: var(--brand);
+  color: #fff;
+}
+
 /* 카드 슬라이드 */
 .card {
   border: none;
