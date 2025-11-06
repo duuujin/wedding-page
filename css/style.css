@@ -111,12 +111,3 @@ a:hover { color: var(--brand-dark); }
     max-width: 23%;
   }
 }
-
-#enable-bgm,
-#enable-bgm:focus,
-#enable-bgm:active,
-#enable-bgm:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
-  -webkit-tap-highlight-color: transparent; /* 모바일 사파리/크롬 탭 하이라이트 제거 */
-}
