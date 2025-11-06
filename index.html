@@ -428,16 +428,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
                 </div>
                 <div class="modal-body">
-                    <p>이 페이지는 아래 순서로 보시면 좋아</p>
+                    <p>이 페이지는 아래 순서로 보면 좋아</p>
                     <ol>
                         <li>상단의 사진 슬라이드를 살펴봐</li>
                         <li>"추억 앨범 보기" 버튼을 눌러 앨범으로 이동해</li>
                         <li>앨범에서 사진을 클릭하면 확대해서 보고, 좌우 화살표로 넘겨봐</li>
+                        <li>앨범 다 봤으면 메세지 보기 눌러봐</li>
+                        <li>밑에 배경음악 켜기 버튼도 눌러서 들으면서 봐</li>
                     </ol>
                     <div class="form-check mt-2">
                         <input class="form-check-input" type="checkbox" value="" id="intro-no-show">
                         <label class="form-check-label" for="intro-no-show">다시 보지 않기</label>
-                    </div>
+                    
+<!-- <div class="form-check d-flex align-items-center justify-content-center gap-2 my-2">
+  <input class="form-check-input" type="checkbox" id="remember-consent">
+  <label class="form-check-label" for="remember-consent">다음부터는 자동으로 켜기</label>
+</div> -->
+<button id="enable-bgm" class="btn btn-primary w-100 py-2 mt-2">배경음악 켜기 🔊</button>
+</div>
                 </div>
                 <div class="modal-footer">
                     <button id="intro-start" type="button" class="btn btn-primary">시작하기</button>
