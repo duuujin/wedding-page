@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
   cards.forEach(card => observer.observe(card));
 
   // 음악 ON/OFF 버튼
+  // 수ㅡ정
   const musicBtn = document.getElementById("music-btn");
   const bgMusic = document.getElementById("bg-music");
 
