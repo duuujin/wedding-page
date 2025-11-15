@@ -4,476 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>친구 결혼 축하 페이지</title>
+    <title>경모 결혼 축하 페이지</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- 커스텀 CSS -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-        @font-face {
-            font-family: 'OngleIpSeaBreeze';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2510-1@1.0/Ownglyph_the_sea_breeze-Rg.woff2') format('woff2');
-            font-weight: normal;
-            font-display: swap;
-        }
-
-        /* 앨범 섹션 경계 및 이미지 스타일 */
-        #album-section {
-            border-top: 2px solid rgba(0, 0, 0, 0.06);
-            padding-top: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .album-img {
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-            transition: transform .18s ease, box-shadow .18s ease;
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        .album-img:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        /* 앨범 모달: 캐러셀 스타일 화살표 사용, 투명한 버튼 */
-        #album-prev,
-        #album-next {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-
-        /* 캐러셀 아이콘을 흰색으로 보이게 조정 */
-        #album-prev .carousel-control-prev-icon,
-        #album-next .carousel-control-next-icon {
-            width: 28px;
-            height: 28px;
-            background-size: 28px 28px;
-            /* 흰색으로 확실히 보이도록 필터 적용 및 중요도 우선 처리 */
-            filter: invert(1) brightness(2) !important;
-            background-color: transparent !important;
-        }
-
-        /* 추가: 아이콘이 검정 계열 이미지일 경우에도 흰색으로 보이게 보정 (대체방법) */
-        #album-prev .carousel-control-prev-icon::before,
-        #album-next .carousel-control-next-icon::before {
-            content: '';
-        }
-
-        #album-prev:hover,
-        #album-next:hover {
-            background: rgba(255, 255, 255, 0.06) !important;
-        }
-
-        .music-control .btn {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            color: inherit;
-        }
-
-        /* 편지 스타일 */
-        .envelope {
-            background: linear-gradient(180deg, #fff 0%, #fbfdff 100%) !important;
-            border-radius: 12px !important;
-            border: 1px solid rgba(201, 166, 107, .45) !important;
-            /* 금박 테두리 */
-            padding: 22px !important;
-            box-shadow: 0 12px 34px rgba(18, 37, 56, .18) !important;
-            position: relative;
-            overflow: hidden;
-            min-height: 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            perspective: 900px;
-            /* 3D 효과를 위한 원근 */
-        }
-
-        .envelope::before {
-            content: "";
-            position: absolute;
-            inset: 10px;
-            border-radius: 10px;
-            border: 2px solid rgba(201, 166, 107, .55);
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .65);
-            pointer-events: none;
-        }
-
-        .envelope::after {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 160px;
-            height: 28px;
-            pointer-events: none;
-            background:
-                radial-gradient(12px 12px at 50% 50%, #B80F2E 48%, transparent 50%),
-                linear-gradient(to right, #C41436 0%, #8F0E26 100%);
-            background-repeat: no-repeat;
-            background-size: 24px 24px, 160px 10px;
-            background-position: 50% 50%, 50% 100%;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .25));
-        }
-
-        .envelope .envelope-content::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            opacity: .15;
-            background-image:
-                radial-gradient(2px 2px at 15% 20%, rgba(255, 255, 255, .9) 50%, transparent 52%),
-                radial-gradient(1.5px 1.5px at 60% 35%, rgba(255, 255, 255, .9) 50%, transparent 52%),
-                radial-gradient(1.8px 1.8px at 30% 75%, rgba(255, 255, 255, .9) 50%, transparent 52%);
-            background-size: 220px 220px;
-        }
-
-        .envelope .cover {
-            /* 알록달록 캔디케인 대각 스트라이프 (빨강/진초록) */
-            background:
-                /* 굵은 스트라이프 레이어 */
-                repeating-linear-gradient(135deg,
-                    rgba(184, 15, 46, .20) 0 12px,
-                    /* red 12px */
-                    rgba(184, 15, 46, .20) 12px 24px,
-                    rgba(12, 70, 50, .20) 24px 36px,
-                    /* deep green 12px */
-                    rgba(12, 70, 50, .20) 36px 48px,
-                    rgba(255, 255, 255, .02) 48px 64px
-                    /* 얇은 white 여백 */
-                ),
-                /* 미세 반짝임(눈글리터) */
-                radial-gradient(140px 140px at 20% 25%, rgba(255, 255, 255, .20), transparent 60%),
-                radial-gradient(160px 160px at 80% 70%, rgba(255, 255, 255, .16), transparent 65%),
-                /* 종이 베이스 */
-                linear-gradient(180deg, #ffffff 0%, #f7fafc 100%) !important;
-
-            border-radius: 10px !important;
-            box-shadow: 0 8px 22px rgba(18, 37, 56, .16) !important;
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-        }
-
-        .envelope .cover::before {
-            content: "";
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 160px;
-            height: 28px;
-            pointer-events: none;
-            background:
-                /* 중앙 매듭(레드) */
-                radial-gradient(11px 11px at 50% 50%, #B80F2E 48%, transparent 50%),
-                /* 리본 바디: 레드 → 진초록 얇은 라인 */
-                linear-gradient(to right, #C41436 0%, #8F0E26 100%),
-                linear-gradient(to right, rgba(12, 70, 50, .85), rgba(12, 70, 50, .85));
-            /* slim green pin-line */
-            background-repeat: no-repeat;
-            background-size:
-                22px 22px,
-                160px 9px,
-                160px 2px;
-            background-position:
-                50% 50%,
-                50% 100%,
-                50% calc(100% - 11px);
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .25));
-        }
-
-        .envelope .cover::after {
-            content: "";
-            position: absolute;
-            right: 10px;
-            bottom: 10px;
-            width: 68px;
-            height: 68px;
-            pointer-events: none;
-            background:
-                /* 베리 3개 (레드) */
-                radial-gradient(6px 6px at 20% 22%, #B80F2E 55%, transparent 57%),
-                radial-gradient(6px 6px at 40% 40%, #B80F2E 55%, transparent 57%),
-                radial-gradient(6px 6px at 62% 58%, #B80F2E 55%, transparent 57%),
-                /* 솔잎(진초록) */
-                conic-gradient(from 0deg at 50% 50%, #0F3A2E 0 25%, transparent 25% 50%, #0F3A2E 50% 75%, transparent 75% 100%);
-            background-repeat: no-repeat;
-            background-size: 10px 10px, 10px 10px, 10px 10px, 68px 68px;
-            background-position: 6px 8px, 24px 24px, 40px 40px, 0 0;
-            opacity: .82;
-            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .20));
-        }
-
-
-        /* 클릭 힌트 (깜빡이는 텍스트) */
-        .envelope .cover .click-hint {
-            background: rgba(255, 255, 255, .92);
-            color: #0F3A2E;
-            /* 진초록 텍스트 */
-            border: 1px solid rgba(201, 166, 107, .45);
-            box-shadow: 0 6px 16px rgba(18, 37, 56, .15);
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1rem;
-            padding: 8px 12px;
-            border-radius: 999px;
-            /* background: rgba(255, 255, 255, 0.92); */
-            /* color: #444; */
-            /* box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); */
-            pointer-events: none;
-            /* 클릭은 전체 카드에서 처리 */
-            z-index: 3;
-            animation: clickBlink 1.4s linear infinite;
-        }
-
-        @keyframes clickBlink {
-            0% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            50% {
-                opacity: 0.15;
-                transform: translateY(-2px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .envelope .envelope-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .envelope.opening .cover {
-            animation: envelopeOpen 600ms cubic-bezier(.2, .9, .3, 1) forwards;
-        }
-
-        @keyframes envelopeOpen {
-            0% {
-                transform: rotateX(0deg);
-                opacity: 1;
-            }
-
-            70% {
-                transform: rotateX(-85deg);
-                opacity: 0.9;
-            }
-
-            100% {
-                transform: rotateX(-95deg) translateY(-10%);
-                opacity: 0;
-            }
-        }
-
-        /* 편지 모달(종이 느낌) */
-        /* 종이 배경: 미색 → 겨울 화이트, 가장자리 금박 라인 */
-        .letter-paper {
-            background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%) !important;
-            border-radius: 14px !important;
-            padding: 32px !important;
-            box-shadow: 0 20px 60px rgba(18, 37, 56, .22) !important;
-            border: 1px solid rgba(201, 166, 107, .45) !important;
-            /* 금사 느낌 */
-            position: relative;
-            isolation: isolate;
-            /* 장식 레이어 겹침 방지 */
-        }
-
-        /* 테두리 금박 이중선 */
-        .letter-paper::before {
-            content: "";
-            position: absolute;
-            inset: 12px;
-            border-radius: 10px;
-            pointer-events: none;
-            border: 2px solid rgba(201, 166, 107, .55);
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .65);
-            z-index: 0;
-        }
-
-        /* 상단 리본 + 홀리(크리스마스 잎사귀) */
-        .letter-paper::after {
-            content: "";
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 180px;
-            height: 32px;
-            z-index: 1;
-            pointer-events: none;
-            background:
-                /* 리본 매듭 */
-                radial-gradient(12px 12px at 50% 50%, #B80F2E 48%, transparent 50%),
-                /* 리본 양쪽 */
-                linear-gradient(to right, #C41436 0%, #8F0E26 100%);
-            background-repeat: no-repeat;
-            background-size:
-                24px 24px,
-                180px 12px;
-            background-position:
-                50% 50%,
-                50% 100%;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .25));
-        }
-
-        /* 제목/메타/본문 색상 톤 */
-        .letter-paper h3 {
-            margin-top: 6px !important;
-            color: #0F3A2E !important;
-            /* 딥그린 */
-            letter-spacing: .3px;
-        }
-
-        .letter-meta {
-            color: #B80F2E !important;
-            /* 와인 레드 */
-            font-weight: 600;
-        }
-
-        .letter-body {
-            color: #233542 !important;
-            /* 차분한 네이비 */
-            line-height: 1.65;
-        }
-
-        /* 눈송이/별 글리터 패턴(아주 은은하게) */
-        .letter-paper .xmas-glitter {
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-            opacity: .18;
-            background-image:
-                radial-gradient(2px 2px at 15% 20%, rgba(255, 255, 255, .9) 50%, transparent 52%),
-                radial-gradient(1.5px 1.5px at 60% 35%, rgba(255, 255, 255, .9) 50%, transparent 52%),
-                radial-gradient(1.8px 1.8px at 30% 75%, rgba(255, 255, 255, .9) 50%, transparent 52%),
-                radial-gradient(1.2px 1.2px at 78% 62%, rgba(255, 255, 255, .9) 50%, transparent 52%);
-            background-repeat: repeat;
-            background-size: 220px 220px;
-        }
-
-        /* 좌우 장식 스탬프 (솔가지 느낌) */
-        .letter-paper .xmas-side {
-            content: "";
-            position: absolute;
-            top: 32px;
-            bottom: 32px;
-            width: 10px;
-            pointer-events: none;
-            opacity: .45;
-            background:
-                repeating-linear-gradient(180deg,
-                    rgba(15, 58, 46, .85) 0 8px,
-                    rgba(15, 58, 46, 0) 8px 16px);
-            box-shadow: inset -2px 0 0 rgba(201, 166, 107, .35);
-        }
-
-        .letter-paper .xmas-side.left {
-            left: 16px;
-            border-radius: 6px;
-        }
-
-        .letter-paper .xmas-side.right {
-            right: 16px;
-            border-radius: 6px;
-        }
-
-        /* 이전/다음 화살표 버튼도 크리스마스 톤으로 */
-        /* #letter-prev .carousel-control-prev-icon,
-        #letter-next .carousel-control-next-icon {
-            filter: invert(1) sepia(0) saturate(0) hue-rotate(0deg) brightness(1.8) !important;
-        } */
-
-        /* #letter-prev:hover,
-        #letter-next:hover {
-            background: rgba(200, 16, 46, .08) !important;
-            border-radius: 999px;
-        } */
-
-        /* 모바일에서 여백 살짝 확대 */
-        @media (max-width: 420px) {
-            .letter-paper {
-                padding: 26px !important;
-            }
-        }
-
-        /* 이전/다음 버튼 작게 조정 */
-        /* #letter-prev,
-        #letter-next {
-            width: 40px;
-            height: 40px
-        } */
-
-        /* 페이지 책 넘김(플립) 애니메이션 */
-        .flip-container {
-            perspective: 1200px;
-        }
-
-        .flip-panel {
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-        }
-
-        .flip-out {
-            animation: flipOut 600ms cubic-bezier(.2, .9, .3, 1) forwards;
-        }
-
-        .flip-in {
-            animation: flipIn 600ms cubic-bezier(.2, .9, .3, 1) forwards;
-        }
-
-        @keyframes flipOut {
-            0% {
-                transform: rotateY(0deg) translateX(0) scale(1);
-                opacity: 1;
-            }
-
-            100% {
-                transform: rotateY(-100deg) translateX(-18%) scale(0.95);
-                opacity: 0;
-            }
-        }
-
-        @keyframes flipIn {
-            0% {
-                transform: rotateY(100deg) translateX(18%) scale(0.95);
-                opacity: 0;
-            }
-
-            100% {
-                transform: rotateY(0deg) translateX(0) scale(1);
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 
 <body>
 
 
-    <div class="music-control  top-0 end-0 m-3">
+    <!-- <div class="music-control  top-0 end-0 m-3">
         <button id="music-btn" class="btn btn-sm btn-outline-secondary">BGM 🔊</button>
-    </div>
+    </div> -->
 
     <!-- 배경 음악 (한 번만 재생) -->
     <audio id="bg-music" src="music/wedding-song.mp3" autoplay loop preload="auto" playsinline></audio>
@@ -481,8 +26,8 @@
     <!-- 페이지 타이틀 -->
     <div class="flip-container">
         <section class="hero-section text-center py-3">
-            <h1>🎉 결혼 축하해! 🎉</h1>
-            <p>초라하지만, 결혼 전에 이거 보면서 옛 생각 떠올려봐!</p>
+            <h1>🎉 결혼 축하한다! 🎉</h1>
+            <p>초라하지만, 이거 보면서 옛 생각 떠올려봐!</p>
         </section>
 
         <!-- 사진 슬라이드 -->
@@ -594,7 +139,7 @@
     <!-- 추억 앨범 섹션 (동적 생성: 사진 2장씩 표시) -->
     <!-- 기본적으로 페이지 로드 시 보이지 않게 함 (버튼으로 표시) -->
     <section id="album-section" class="container py-4 d-none">
-        <h2 class="mb-3">추억 앨범</h2>
+        <!-- <h2 class="mb-3">추억 앨범</h2> -->
         <div id="album-row" class="row g-3">
             <!-- 자바스크립트로 썸네일이 여기 생성됩니다 -->
         </div>
@@ -656,26 +201,21 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">페이지 사용 안내</h5>
+                    <h5 class="modal-title">한 번 보고 가셔</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
                 </div>
                 <div class="modal-body">
-                    <p>요거는 아래 순서로 보면 좋을거야</p>
+                    <p>고냥 대충 대충 만들었으니 심심할 때 보셔</p>
                     <ol>
-                        <li>상단의 사진 슬라이드를 살펴봐</li>
-                        <li>"추억 앨범 보기" 버튼을 눌러 앨범으로 이동해</li>
-                        <li>앨범에서 사진을 클릭하면 확대해서 보고, 좌우 화살표로 넘겨봐</li>
+                        <li>알아서 잘 보거라 생각한다</li>
+                        <li>요상하게 만든 앨범으로 이동해서 잘 보셔</li>
                         <li>앨범 다 봤으면 메세지 보기 눌러봐</li>
-                        <li>추가로 음악과 함께 봐봐</li>
+                        <li>음악이랑 함께 보셔</li>
                     </ol>
                     <div class="form-check mt-2">
-                        <input class="form-check-input" type="checkbox" value="" id="intro-no-show">
-                        <label class="form-check-label" for="intro-no-show">다시 보지 않기</label>
+                        <!-- <input class="form-check-input" type="checkbox" value="" id="intro-no-show"> -->
+                        <!-- <label class="form-check-label" for="intro-no-show">다시 보지 않기</label> -->
 
-                        <!-- <div class="form-check d-flex align-items-center justify-content-center gap-2 my-2">
-  <input class="form-check-input" type="checkbox" id="remember-consent">
-  <label class="form-check-label" for="remember-consent">다음부터는 자동으로 켜기</label>
-</div> -->
                         <button id="enable-bgm" class="btn btn-primary w-100 py-2 mt-2">배경음악 켜기 🔊</button>
                     </div>
                 </div>
@@ -983,7 +523,7 @@
         (function () {
             // --- 편지 데이터(예시) ---
             const letters = [
-                { title: '함께한 시간에', body: `기시갑혀압 순사를 앗날계샸릿어요 싲더디며, 액링다 익는으로 훅니티더에서 가까여가 나세허로부터. 윽압미잔븐 안특퇸미 멍닌거, 으칼의 아라지 됭네퍼어 기끼는. 더깁이어 열체졲스놔얀연의 하됴습도 이듸묵우피았은 송쑬다 힘자서니순에 서껸셏도. 아아를 짐말 타즣단싱은 녕오수자아, 음더 그쏘링은발훈한테 햅은애를. 미닥핬은 작자벼의 릴벼레로이니가아톻으라 떠애끄노다 미여흡흔 으쏘랄의 띡아와 바녕 아시로 다리닼루가 잉려안누으노요. 운힉항호 갈마굘체으시는 즈송실리를 익엔가아똥곤가아는 어내쿨므를 흐다가 락눌앙잖. 넶러 즎타렁다 다싱는다 떠앨런눌어허와 안긍은 즐수군보다 이힙의 셔옹나옥다. 츠오지의 있솨미하소 갈희스아이어 핀슨싑이 샌군찬홍 슨발각하다. 여앴 초셕괴가 잉시시루어야 후냐밋오니 아칵체으나 웅신노 운자로 프긴은시어 뫄족솜반겅어서 농뽀새다, 조데넬숩에. 묘시거순거생 이농데폰의 그스는 하강은 빌올다. 으댐에서 아지 인디닾토누 다거로다 믔밍즈너.`, author: '친구 A' }
+                { title: '함께한 시간에', body: `넝줏기깅릭저다 갓안 가다아 해기이에 이풉온깨건 촞으읜손으면 으동쿤기농 갈닥자까지 톨톳엠비라고. 옵싄다 조히눤 닌까학치가 혹감온으죶 더녜조고 었선섬갭아 시슈노트는 즘자딜자에게 언섹앰겨. 햇돈카방으로 실인어도 디가애는 절칸데구힢은 호은이지 헉배 자틸리이다 겡징의 샌앙의 두봔그엉읩둠의 졘주에. 험치며 대지간다 등사를 엑널미 이운테의 갸 가캉냉. 안뫄에 빠셀이푠 꼉까으와 니힝 로븡애곱을 주모믈. 안시존일타눈와눈고 넨거릿고 자칸이곡극싸의 이슬쒂시고 루뢈 엤띤다 버더시로 거읍승바파로.`, author: '친구 A' }
             ];
 
             // 편지 목록 생성
@@ -1171,7 +711,206 @@
             });
         })();
     </script>
+    <script>
+(function(){
+  // 앨범 섹션 안의 .album-thumb들을 3장씩 묶어서
+  // #album-section 내부에 "필름스트립 캐러셀" 섹션을 1회 생성
+  const albumSection = document.getElementById('album-section');
+  const openBtn = document.getElementById('open-album');
 
+  function buildFilmstripFromAlbum(){
+    if (!albumSection || albumSection.dataset.filmstripReady === '1') return;
+
+    // 이미 동적 생성된 앨범 썸네일을 데이터 소스로 사용
+    const thumbs = albumSection.querySelectorAll('.album-thumb');
+    if (!thumbs.length) return; // 썸네일이 아직 없으면 생성 보류
+
+    const images = Array.from(thumbs).map(img => ({
+      src: img.getAttribute('src'),
+      alt: img.getAttribute('alt') || ''
+    }));
+
+    // 3장씩 묶기
+    const per = 3, slides = [];
+    for (let i=0; i<images.length; i+=per){
+      slides.push(images.slice(i, i+per));
+    }
+
+    // 섹션 마크업 생성 (h2 바로 아래에 삽입)
+    const wrap = document.createElement('section');
+    wrap.id = 'filmstrip-album';
+    wrap.className = 'mt-4';
+    wrap.innerHTML = `
+      <div class="d-flex justify-content-between align-items-end mb-2">
+        <h2 class="mb-0">🎞️ 추억 앨범</h2>
+        <small class="text-muted">썸네일 클릭으로 이동</small>
+      </div>
+
+      <div id="filmCarousel" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-inner" style='border-radius: 10px;'>
+          ${slides.map((g,idx)=>`
+            <div class="carousel-item ${idx===0?'active':''}">
+              <div class="film-frame">
+                <div class="row g-3 px-3">
+                  ${g.map(o=>`
+                    <div class="col-12 col-md-4">
+                      <img class="film-img" src="${o.src}" alt="${o.alt}">
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#filmCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#filmCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="thumbs d-flex gap-2 justify-content-center mt-3" id="filmThumbs">
+        ${slides.map((g,idx)=>`
+          <button class="btn p-0 border-0 ${idx===0?'active':''}"
+                  data-bs-target="#filmCarousel" data-bs-slide-to="${idx}"
+                  aria-label="${idx+1}번째 슬라이드">
+            <img src="${g[0]?.src || ''}" alt="thumb${idx+1}">
+          </button>
+        `).join('')}
+      </div>
+    `;
+
+    const h2 = albumSection.querySelector('h2');
+    (h2 || albumSection.firstElementChild)?.insertAdjacentElement('afterend', wrap);
+
+    // ✅ 이 한 줄 추가: 필름스트립이 있음을 표시 → CSS가 기존 그리드 숨김
+    albumSection.classList.add('with-filmstrip');
+
+    // 썸네일-슬라이드 동기화
+    const carouselEl = wrap.querySelector('#filmCarousel');
+    const thumbsBar = wrap.querySelectorAll('#filmThumbs button');
+
+    thumbsBar.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        thumbsBar.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    carouselEl.addEventListener('slid.bs.carousel', (e)=>{
+      const idx = e.to;
+      thumbsBar.forEach(b=>b.classList.remove('active'));
+      thumbsBar[idx]?.classList.add('active');
+    });
+
+    albumSection.dataset.filmstripReady = '1'; // 재생성 방지
+  }
+
+  // 1) “추억 앨범 보기” 버튼 눌렀을 때 생성
+  openBtn?.addEventListener('click', ()=>{
+    // 앨범 섹션이 보이도록 토글된 직후 DOM이 준비되니 약간 뒤에 실행
+    setTimeout(buildFilmstripFromAlbum, 0);
+  });
+
+  // 2) 바로 #album 해시로 진입한 경우(새로고침 등)도 대비
+  if (location.hash === '#album') {
+    // 기존 해시 처리 스크립트가 섹션 토글한 뒤 실행되도록 약간 지연
+    window.addEventListener('load', ()=> setTimeout(buildFilmstripFromAlbum, 50));
+  }
+})();
+</script>
+<script>
+/* 화면 가로/세로 비율에 맞춰 썸네일 너비(--thumb-w) 동적 조정 */
+(function(){
+  function updateThumbSize(){
+    const wrappers = document.querySelectorAll('#filmstrip-section, #filmstrip-album');
+    if(!wrappers.length) return;
+
+    const w = Math.max(1, window.innerWidth);
+    const h = Math.max(1, window.innerHeight);
+    const ratio = w / h;                // >1: 가로형(랜드스케이프), <=1: 세로형(포트레이트)
+
+    // 기본 크기 계산: 세로형은 폭 기준, 가로형은 높이 기준으로 산정
+    // (최소 64px ~ 최대 128px 안에서 스무딩)
+    const base = ratio > 1
+      ? Math.min(128, Math.max(64, Math.round(h * 0.12)))   // landscape: 높이의 12%
+      : Math.min(128, Math.max(64, Math.round(w * 0.22)));  // portrait: 너비의 22%
+
+    wrappers.forEach(el => el.style.setProperty('--thumb-w', base + 'px'));
+  }
+
+  // 최초/리사이즈/회전 변화마다 갱신
+  window.addEventListener('resize', updateThumbSize);
+  window.addEventListener('orientationchange', updateThumbSize);
+  window.addEventListener('load', updateThumbSize);
+  updateThumbSize();
+})();
+</script>
+<script>
+/* 슬라이드 시점에 릴 가속/킥 클래스 토글 */
+(function(){
+  const film = document.getElementById('filmCarousel');
+  if(!film) return;
+
+  film.addEventListener('slide.bs.carousel', ()=>{
+    film.classList.add('reel-spin');          // 가속 + 킥 ON
+    setTimeout(()=> film.classList.remove('reel-spin'), 700); // 혹시 모를 누락 대비 자동 해제
+  });
+
+  film.addEventListener('slid.bs.carousel', ()=>{
+    film.classList.remove('reel-spin');       // 슬라이드 완료 시 해제
+  });
+})();
+</script>
+<script>
+/* Film Overlay Injector: 생성된 모든 .film-frame에 스크래치/먼지/비네트 레이어 추가 */
+(function(){
+  function addOverlays(root=document){
+    const frames = root.querySelectorAll?.('.film-frame') ?? [];
+    frames.forEach(f=>{
+      if (f.dataset.overlayReady === '1') return;
+      ['overlay-scratches','overlay-dust','overlay-vignette'].forEach(cls=>{
+        const d = document.createElement('div');
+        d.className = cls;
+        f.appendChild(d);
+      });
+      f.dataset.overlayReady = '1';
+    });
+  }
+
+  // 처음 한 번 적용
+  addOverlays(document);
+
+  // 이후 동적으로 생성되는 필름 프레임에도 자동 적용
+  const mo = new MutationObserver(muts=>{
+    for(const m of muts){
+      for(const n of m.addedNodes){
+        if(n.nodeType!==1) continue;
+        if(n.matches?.('.film-frame')) addOverlays(n);
+        else addOverlays(n);
+      }
+    }
+  });
+  mo.observe(document.body, { childList:true, subtree:true });
+
+  // 가로/세로 전환이나 리사이즈 시 미세 강도 조절(선택)
+  function tuneByViewport(){
+    const landscape = window.innerWidth > window.innerHeight;
+    document.querySelectorAll('.film-frame').forEach(f=>{
+      f.style.setProperty('--scratch-opacity', landscape ? '.2' : '.25');
+      f.style.setProperty('--dust-opacity', landscape ? '.1' : '.14');
+    });
+  }
+  window.addEventListener('resize', tuneByViewport);
+  window.addEventListener('orientationchange', tuneByViewport);
+  window.addEventListener('load', tuneByViewport);
+  tuneByViewport();
+})();
+</script>
 
 </body>
 

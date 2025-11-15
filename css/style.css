@@ -29,7 +29,7 @@ body {
   border: none;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
@@ -48,7 +48,7 @@ body {
   background-color: #fff6ed;
   border-radius: 12px;
   padding: 5px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -63,7 +63,7 @@ body {
 
 .album-card:hover {
   transform: translateY(-5px) rotateZ(-1deg);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .album-text {
@@ -72,14 +72,14 @@ body {
   margin-top: 5px;
 }
 
-.row > .col-3 {
+.row>.col-3 {
   flex: 1 1 calc(25% - 15px);
   max-width: 23%;
 }
 
 /* 모바일도 4장 고정 */
 @media (max-width: 576px) {
-  .row > .col-3 {
+  .row>.col-3 {
     flex: 1 1 calc(25% - 10px);
     max-width: 23%;
   }
@@ -88,7 +88,7 @@ body {
 
 
 /* === Winter Wedding Theme Add-on === */
-:root{
+:root {
   --bg: #f5f7fb;
   --text: #2f3441;
   --brand: #7AAAD8;
@@ -96,137 +96,235 @@ body {
   --accent: #C9D6EA;
   --gold: #C9A66B;
 }
-body{ background: var(--bg); color: var(--text); }
-a, .link{ color: var(--brand); }
-a:hover{ color: var(--brand-dark); }
-.btn-primary{ background:var(--brand); border-color:var(--brand); }
-.btn-primary:hover{ background:var(--brand-dark); border-color:var(--brand-dark); }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* 겨울 노을 (딥 네이비 -> 인디고 */
+/* :root{
+  --bg-a:#0b1220;
+  --bg-b:#1b2542;
+  --bg-c:#2b3b73;
+  --snow-stroke:rgba(255,255,255,.85);
+  --snow-glow:rgba(154,183,255,.20);
+}
+body{
+  background:
+    radial-gradient(1200px 800px at 70% -10%, rgba(255,255,255,.06), transparent 60%),
+    linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 50%, var(--bg-c) 100%);
+}
+#flakes svg{ stroke:var(--snow-stroke); filter:drop-shadow(0 2px 4px var(--snow-glow)); }
+.snow-dim{ position:fixed; inset:0; pointer-events:none; background:radial-gradient(1000px 600px at 50% 0%, rgba(255,255,255,.05), transparent 60%); z-index:0; } */
+
+
+
+/* 프로스티 민트 (청록 -> 차가운 하늘) */
+/* :root{
+  --bg-a:#0a2a32;
+  --bg-b:#0e3f49;
+  --bg-c:#1e6771;
+  --snow-stroke:rgba(240,255,255,.85);
+  --snow-glow:rgba(120,220,220,.18);
+}
+body{
+  background:
+    radial-gradient(1000px 700px at 80% -15%, rgba(255,255,255,.08), transparent 65%),
+    linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 40%, var(--bg-c) 100%);
+}
+#flakes svg{ stroke:var(--snow-stroke); filter:drop-shadow(0 2px 4px var(--snow-glow)); } */
+
+
+a,
+.link {
+  color: var(--brand);
+}
+
+a:hover {
+  color: var(--brand-dark);
+}
+
+.btn-primary {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.btn-primary:hover {
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
+}
 
 /* Cards / album */
-.card, .album-card{
-  background: #fff; border: 1px solid #e6ecf5;
-  box-shadow: 0 12px 30px rgba(90,132,170,.15);
+.card,
+.album-card {
+  background: #fff;
+  border: 1px solid #e6ecf5;
+  box-shadow: 0 12px 30px rgba(90, 132, 170, .15);
 }
-.album-card img{ filter: contrast(0.98) saturate(0.9) brightness(1.02); }
+
+.album-card img {
+  filter: contrast(0.98) saturate(0.9) brightness(1.02);
+}
 
 /* Section title gold underline */
-.section-title{ font-weight:700; letter-spacing:.3px; color: var(--text); position:relative; display:inline-block; padding-bottom:10px; }
-.section-title::after{
-  content:""; position:absolute; left:50%; transform:translateX(-50%);
-  bottom:0; width:72px; height:2px;
+.section-title {
+  font-weight: 700;
+  letter-spacing: .3px;
+  color: var(--text);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 72px;
+  height: 2px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
 /* Modal winter polish */
-.modal-content{
-  border:1px solid #e6ecf5;
-  box-shadow: 0 20px 60px rgba(42,66,96,.18);
+.modal-content {
+  border: 1px solid #e6ecf5;
+  box-shadow: 0 20px 60px rgba(42, 66, 96, .18);
   background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
 }
-#enable-bgm{
-  background:var(--brand)!important; border-color:var(--brand)!important; color:#fff!important;
+
+#enable-bgm {
+  background: var(--brand) !important;
+  border-color: var(--brand) !important;
+  color: #fff !important;
 }
-#enable-bgm:hover{
-  background:var(--brand-dark)!important; border-color:var(--brand-dark)!important;
+
+#enable-bgm:hover {
+  background: var(--brand-dark) !important;
+  border-color: var(--brand-dark) !important;
 }
 
 /* "추억 앨범 보기" button */
-#open-album{
+#open-album {
   /* background:linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%); */
   /* border:none; color:#fff; */
-  box-shadow: 0 8px 18px rgba(90,132,170,.25);
+  box-shadow: 0 8px 18px rgba(90, 132, 170, .25);
 }
-#open-album:hover{ filter: brightness(1.03); }
+
+#open-album:hover {
+  filter: brightness(1.03);
+}
 
 /* Subtle frost frame */
-.album-card img{
-  position:relative; border-radius:10px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.6);
+.album-card img {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .6);
 }
 
 /* Snow overlay */
-.snow{
-  pointer-events:none; position:fixed; inset:0; overflow:hidden; z-index:1050;
+.snow {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1050;
   background-image:
-    radial-gradient(2px 2px at 20px 30px, rgba(240,248,255,.95) 50%, transparent 51%),
-    radial-gradient(2px 2px at 80px 120px, rgba(240,248,255,.9) 50%, transparent 51%),
-    radial-gradient(2px 2px at 200px 80px, rgba(240,248,255,.9) 50%, transparent 51%),
-    radial-gradient(3px 3px at 300px 20px, rgba(240,248,255,.85) 50%, transparent 51%),
-    radial-gradient(3px 3px at 500px 50px, rgba(240,248,255,.85) 50%, transparent 51%);
+    radial-gradient(2px 2px at 20px 30px, rgba(240, 248, 255, .95) 50%, transparent 51%),
+    radial-gradient(2px 2px at 80px 120px, rgba(240, 248, 255, .9) 50%, transparent 51%),
+    radial-gradient(2px 2px at 200px 80px, rgba(240, 248, 255, .9) 50%, transparent 51%),
+    radial-gradient(3px 3px at 300px 20px, rgba(240, 248, 255, .85) 50%, transparent 51%),
+    radial-gradient(3px 3px at 500px 50px, rgba(240, 248, 255, .85) 50%, transparent 51%);
   background-size: 50px 50px;
   animation-duration: 3s;
   animation: snow-fall-sway 14s linear infinite;
-  opacity:.9;
+  opacity: .9;
 }
 
-@keyframes snow-fall-sway{
+@keyframes snow-fall-sway {
+
   /* 각 레이어의 시작 X/Y를 다르게 해서 자연스러움 */
-  0%{
+  0% {
     background-position:
-      0    -600px,
+      0 -600px,
       -60px -300px,
       -30px -450px,
       -90px -700px,
       -10px -500px;
   }
-  25%{
+
+  25% {
     background-position:
       50px -450px,
-      0px  -150px,
+      0px -150px,
       40px -320px,
       -30px -520px,
       30px -380px;
   }
-  50%{
+
+  50% {
     background-position:
       -40px -300px,
-      40px   0px,
+      40px 0px,
       -60px -200px,
-      20px  -340px,
+      20px -340px,
       -20px -260px;
   }
-  75%{
+
+  75% {
     background-position:
       60px -150px,
       -30px 150px,
-      50px  -80px,
+      50px -80px,
       -40px -160px,
-      40px  -120px;
+      40px -120px;
   }
-  100%{
+
+  100% {
     background-position:
-      0px   0px,
-      0px  300px,
-      0px  150px,
-      0px  100px,
-      0px  400px;
+      0px 0px,
+      0px 300px,
+      0px 150px,
+      0px 100px,
+      0px 400px;
   }
 }
 
-.snow { filter: drop-shadow(0 0 4px rgba(0,0,0,.25)); }
-.snow-front { filter: blur(0.2px) drop-shadow(0 0 5px rgba(0,0,0,.35)); }
+.snow {
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, .25));
+}
+
+.snow-front {
+  filter: blur(0.2px) drop-shadow(0 0 5px rgba(0, 0, 0, .35));
+}
 
 /* 앞쪽(전경) 눈: 더 빠르고 진하게 */
-.snow-front{
-  z-index: 1060;         /* 모달(1055)보다 살짝 뒤 or 필요에 따라 1020~1070 조절 */
+.snow-front {
+  z-index: 1060;
+  /* 모달(1055)보다 살짝 뒤 or 필요에 따라 1020~1070 조절 */
   opacity: 0.92;
-  animation-duration: 10s;    /* 기본 18s보다 빠르게 */
-  background-size: 400px 400px; /* 촘촘하게 */
-  filter: drop-shadow(0 0 5px rgba(0,0,0,.35));
+  animation-duration: 10s;
+  /* 기본 18s보다 빠르게 */
+  background-size: 400px 400px;
+  /* 촘촘하게 */
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, .35));
   mix-blend-mode: screen;
   animation: snow-fall-sway-front 10s linear infinite;
 }
 
-@keyframes snow-fall-sway-front{
-  0%{
+@keyframes snow-fall-sway-front {
+  0% {
     background-position:
       -30px -600px,
-      40px  -300px,
-      10px  -450px,
+      40px -300px,
+      10px -450px,
       -60px -700px,
-      20px  -500px;
+      20px -500px;
   }
-  25%{
+
+  25% {
     background-position:
       80px -450px,
       -20px -150px,
@@ -234,94 +332,920 @@ a:hover{ color: var(--brand-dark); }
       10px -520px,
       -10px -380px;
   }
-  50%{
+
+  50% {
     background-position:
       -70px -300px,
-      60px   0px,
+      60px 0px,
       -90px -200px,
-      40px  -340px,
-      10px  -260px;
+      40px -340px,
+      10px -260px;
   }
-  75%{
+
+  75% {
     background-position:
       90px -150px,
       -40px 150px,
-      80px  -80px,
+      80px -80px,
       -70px -160px,
-      50px  -120px;
+      50px -120px;
   }
-  100%{
+
+  100% {
     background-position:
-      0px   0px,
-      0px  300px,
-      0px  150px,
-      0px  100px,
-      0px  400px;
+      0px 0px,
+      0px 300px,
+      0px 150px,
+      0px 100px,
+      0px 400px;
   }
 }
 
-.snow-dim{
-  position: fixed; inset: 0; z-index: 1020; pointer-events: none;
+.snow-dim {
+  position: fixed;
+  inset: 0;
+  z-index: 1020;
+  pointer-events: none;
   background: radial-gradient(circle at 50% -20%,
-              rgba(0,0,30,.10) 0%,
-              rgba(0,0,30,.08) 35%,
-              rgba(0,0,30,.06) 55%,
-              rgba(0,0,30,.03) 80%,
-              transparent 100%);
+      rgba(0, 0, 30, .10) 0%,
+      rgba(0, 0, 30, .08) 35%,
+      rgba(0, 0, 30, .06) 55%,
+      rgba(0, 0, 30, .03) 80%,
+      transparent 100%);
   /* 너무 어두우면 opacity 조절 */
   opacity: .8;
 }
 
 
-@keyframes snow-fall{
-  0%   { background-position: 0 -600px, 0 -300px, 0 -450px, 0 -700px, 0 -500px; }
-  100% { background-position: 0 0,      0 300px,  0 150px,  0 100px,  0 400px; }
+@keyframes snow-fall {
+  0% {
+    background-position: 0 -600px, 0 -300px, 0 -450px, 0 -700px, 0 -500px;
+  }
+
+  100% {
+    background-position: 0 0, 0 300px, 0 150px, 0 100px, 0 400px;
+  }
 }
 
 /* 눈결정 컨테이너 */
 /* SVG 눈결정 컨테이너 */
-#flakes{
+#flakes {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 1050;   /* 필요시 1045~1060 사이 조정 */
+  z-index: 1050;
+  /* 필요시 1045~1060 사이 조정 */
   overflow: hidden;
 }
 
 /* 각 눈결정 */
-.snowflake{
+.snowflake {
   position: absolute;
-  top: -10vh;                  /* 화면 위에서 등장 */
-  width: 10px; height: 10px;   /* 기본 크기 (scale로 개별 변경) */
+  top: -10vh;
+  /* 화면 위에서 등장 */
+  width: 10px;
+  height: 10px;
+  /* 기본 크기 (scale로 개별 변경) */
   will-change: transform, opacity;
   user-select: none;
   opacity: 0;
 }
 
 /* SVG 공통 스타일(스트로크/글로우) */
-.snowflake svg{
-  width: 100%; height: 100%;
-  stroke: rgba(255,255,255,.95);
+.snowflake svg {
+  width: 100%;
+  height: 100%;
+  stroke: rgba(255, 255, 255, .95);
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
-  filter: drop-shadow(0 0 5px rgba(0,0,0,.25));
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, .25));
 }
 
 /* 전경/후경 미묘한 차이 */
-.snowflake.front svg{
-  filter: drop-shadow(0 0 6px rgba(0,0,0,.35));
+.snowflake.front svg {
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, .35));
 }
-.snowflake.back svg{
+
+.snowflake.back svg {
   opacity: .9;
-  filter: blur(.2px) drop-shadow(0 0 4px rgba(0,0,0,.25));
+  filter: blur(.2px) drop-shadow(0 0 4px rgba(0, 0, 0, .25));
 }
 
 /* 낙하 + 좌우 스웨이 + 회전 */
 @keyframes fall-sway-rotate {
-  0%   { transform: translate3d(var(--x,0), -12vh, 0) rotate(0deg)   scale(var(--s,1)); opacity:0; }
-  8%   { opacity:1; }
-  50%  { transform: translate3d(calc(var(--x,0) + var(--sw,0px)), 52vh, 0) rotate(180deg) scale(var(--s,1)); }
-  100% { transform: translate3d(calc(var(--x,0) + var(--sw,0px) * 2), 108vh, 0) rotate(360deg) scale(var(--s,1)); opacity:.95; }
+  0% {
+    transform: translate3d(var(--x, 0), -12vh, 0) rotate(0deg) scale(var(--s, 1));
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate3d(calc(var(--x, 0) + var(--sw, 0px)), 52vh, 0) rotate(180deg) scale(var(--s, 1));
+  }
+
+  100% {
+    transform: translate3d(calc(var(--x, 0) + var(--sw, 0px) * 2), 108vh, 0) rotate(360deg) scale(var(--s, 1));
+    opacity: .95;
+  }
+}
+
+
+/* === Filmstrip (추가) === */
+.film-frame {
+  position: relative;
+  background: #111;
+  padding: 28px 18px;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 2px #000, 0 14px 34px rgba(0, 0, 0, .18);
+}
+
+/* 측면 펀칭(필름 홀) */
+.film-frame::before,
+.film-frame::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  width: 14px;
+  background: radial-gradient(circle at 7px 10px, #222 0 5px, transparent 6px) 0 0/100% 48px repeat-y;
+  border-radius: 6px;
+}
+
+.film-frame::before {
+  left: 6px;
+}
+
+.film-frame::after {
+  right: 6px;
+}
+
+.film-img {
+  aspect-ratio: 4/5;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .25);
+}
+
+/* 썸네일 바 */
+.thumbs img {
+  width: 90px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: .7;
+  transition: transform .2s ease, opacity .2s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
+  cursor: pointer;
+}
+
+.thumbs .active img {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .18);
+  outline: 3px solid #fff;
+}
+
+/* 필름스트립을 만들면 기존 앨범 그리드(#album-row)는 숨김 */
+#album-section.with-filmstrip #album-row {
+  display: none !important;
+}
+
+
+/* === Responsive Filmstrip Thumbs (추가) === */
+#filmThumbs {
+  /* 가로/세로 비율에 따라 JS가 덮어쓸 기본값 */
+  --thumb-w: 96px;
+  display: flex;
+  flex-wrap: wrap;
+  /* 좁으면 자동 줄바꿈 */
+  justify-content: center;
+  gap: .5rem .75rem;
+  /* 세로/가로 간격 */
+}
+
+#filmThumbs button {
+  flex: 0 1 var(--thumb-w);
+  /* 한 칸 너비 = --thumb-w */
+}
+
+#filmThumbs img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  /* 3:2 비율 유지(가로형 썸네일) */
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: .85;
+  transition: transform .2s ease, opacity .2s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .12);
+}
+
+#filmThumbs .active img {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .18);
+  outline: 3px solid #fff;
+}
+
+/* 화면 방향에 따른 기본 스케일 힌트 (JS가 최종 조정) */
+@media (orientation: portrait) {
+
+  #filmstrip-section,
+  #filmstrip-album {
+    --thumb-w: clamp(64px, 22vw, 120px);
+  }
+}
+
+@media (orientation: landscape) {
+
+  #filmstrip-section,
+  #filmstrip-album {
+    --thumb-w: clamp(64px, 12vh, 120px);
+  }
+}
+
+/* === Filmstrip 모든 사진을 동일 사이즈로 맞추기(override) === */
+/* 원하는 공통 높이를 뷰포트에 맞춰 유연하게 지정 */
+#filmstrip-section,
+#filmstrip-album {
+  --film-h: clamp(220px, 32vh, 380px);
+  /* 필요시 숫자만 바꿔줘 */
+}
+
+/* 기존 aspect-ratio 설정을 무시하고, 고정 높이로 통일 */
+.film-frame .film-img {
+  width: 100%;
+  height: var(--film-h);
+  object-fit: cover;
+  aspect-ratio: auto !important;
+  /* 이전 규칙(4/5)을 덮어써서 정확히 동일 높이 */
+}
+
+/* (선택) 화면 방향에 따라 높이 살짝 보정하고 싶을 때 */
+@media (orientation: portrait) {
+
+  #filmstrip-section,
+  #filmstrip-album {
+    --film-h: clamp(220px, 36vh, 420px);
+  }
+}
+
+@media (orientation: landscape) {
+
+  #filmstrip-section,
+  #filmstrip-album {
+    --film-h: clamp(200px, 28vh, 360px);
+  }
+}
+
+.film-frame .row {
+  justify-content: center;
+}
+
+/* === Film Reel Animation (추가) === */
+.film-frame {
+  --reel-speed: 10s;
+  /* 기본 릴 스크롤 속도 */
+  --jitter-amp: 5px;
+  /* 게이트 위브(흔들림) 강도 */
+}
+
+/* 측면 펀칭(스프로킷 홀) 배경을 천천히 아래로 스크롤 */
+.film-frame::before,
+.film-frame::after {
+  animation: perforation-scroll var(--reel-speed) linear infinite;
+}
+
+@keyframes perforation-scroll {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 48px;
+  }
+
+  /* 48px = 현재 홀 패턴 반복 높이 */
+}
+
+/* 슬라이드 순간에는 릴이 빠르게 감기는 듯 가속 */
+#filmCarousel.reel-spin .film-frame::before,
+#filmCarousel.reel-spin .film-frame::after {
+  animation-duration: .6s;
+  /* 짧게 가속 */
+}
+
+/* 게이트 위브(필름 특유의 미세 흔들림) */
+.film-frame .row {
+  animation: gate-weave 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes gate-weave {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(var(--jitter-amp), calc(var(--jitter-amp) * -1)) rotate(-.08deg);
+  }
+
+  50% {
+    transform: translate(calc(var(--jitter-amp) * -1), var(--jitter-amp)) rotate(.10deg);
+  }
+
+  75% {
+    transform: translate(calc(var(--jitter-amp) * .6), calc(var(--jitter-amp) * .8)) rotate(-.06deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* (선택) 슬라이드 교체 타이밍에 프레임이 살짝 튀는 킥 효과 */
+#filmCarousel.reel-spin .film-frame {
+  animation: frame-kick .6s cubic-bezier(.2, .9, .3, 1);
+}
+
+@keyframes frame-kick {
+  0% {
+    transform: rotate(-.8deg) scale(.995);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* === Film Scratches & Dust Overlay (추가) === */
+/* 강도/속도 조절 변수 */
+.film-frame {
+  --scratch-speed: 16s;
+  /* 세로 스크래치 흘러가는 속도 */
+  --dust-speed: 28s;
+  /* 먼지 드리프트 속도 */
+  --scratch-opacity: .22;
+  /* 스크래치 진하기 */
+  --dust-opacity: .12;
+  /* 먼지 진하기 */
+}
+
+/* 공통 레이어 베이스 */
+.film-frame .overlay-scratches,
+.film-frame .overlay-dust,
+.film-frame .overlay-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  /* 사진 위, 컨트롤 아래면 5~8 정도 */
+}
+
+/* 세로 스크래치 + 미세 가로 긁힘 */
+.film-frame .overlay-scratches {
+  mix-blend-mode: screen;
+  opacity: var(--scratch-opacity);
+  background-image:
+    /* 가느다란 세로 긁힘들 */
+    repeating-linear-gradient(to right,
+      rgba(255, 255, 255, .09) 0 1px, transparent 1px 4px),
+    /* 약한 가로 드로잉(필름 이동감) */
+    repeating-linear-gradient(to bottom,
+      rgba(255, 255, 255, .06) 0 2px, transparent 2px 180px);
+  background-size: auto, auto;
+  background-position: 0 0, 0 0;
+  animation: scratchesFlow var(--scratch-speed) linear infinite;
+}
+
+@keyframes scratchesFlow {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+
+  100% {
+    background-position: -40px 0, 0 480px;
+  }
+}
+
+/* 먼지/입자 (반짝이는 작은 점들) */
+.film-frame .overlay-dust {
+  mix-blend-mode: screen;
+  opacity: var(--dust-opacity);
+  background-image:
+    radial-gradient(rgba(255, 255, 255, .18) 35%, transparent 36%),
+    radial-gradient(rgba(255, 255, 255, .12) 35%, transparent 36%),
+    radial-gradient(rgba(255, 255, 255, .10) 35%, transparent 36%);
+  background-repeat: repeat;
+  background-size: 3px 3px, 2px 2px, 1.5px 1.5px;
+  background-position: 0 0, 22px 38px, -26px -54px;
+  animation: dustDrift var(--dust-speed) linear infinite;
+}
+
+@keyframes dustDrift {
+  0% {
+    background-position: 0 0, 22px 38px, -26px -54px;
+  }
+
+  100% {
+    background-position: -80px 120px, -58px 168px, -100px 40px;
+  }
+}
+
+/* 주변이 살짝 어두워지는 비네트 + 약한 플리커 */
+.film-frame .overlay-vignette {
+  z-index: 6;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0) 60%,
+      rgba(0, 0, 0, .38) 100%);
+  mix-blend-mode: multiply;
+  animation: projectorFlicker 1.2s steps(2, end) infinite;
+  opacity: .9;
+}
+
+@keyframes projectorFlicker {
+  0% {
+    opacity: .82;
+  }
+
+  50% {
+    opacity: .94;
+  }
+
+  100% {
+    opacity: .86;
+  }
+}
+
+/* 슬라이드 전환 시(이미 앞서 추가한 reel-spin 클래스와 연동 가능) */
+#filmCarousel.reel-spin .overlay-scratches {
+  animation-duration: .6s;
+}
+
+#filmCarousel.reel-spin .overlay-vignette {
+  animation-duration: .6s;
+}
+
+/* 모션 줄임을 설정한 사용자 배려 */
+@media (prefers-reduced-motion: reduce) {
+
+  .film-frame .overlay-scratches,
+  .film-frame .overlay-dust,
+  .film-frame .overlay-vignette {
+    animation: none !important;
+  }
+}
+
+
+/* Photo Booth Strips
+#photobooth{ --col: clamp(180px, 32vw, 240px); }
+#photobooth .grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(var(--col),1fr)); gap:16px; }
+.strip{ background:#111; padding:18px 14px; border-radius:16px; box-shadow:inset 0 0 0 2px #000, 0 14px 34px rgba(0,0,0,.18); }
+.strip .slot{ aspect-ratio: 3/4; border-radius:10px; overflow:hidden; margin-bottom:12px; box-shadow:0 8px 22px rgba(0,0,0,.25); }
+.strip img{ width:100%; height:100%; object-fit:cover; display:block; } */
+@font-face {
+  font-family: 'OngleIpSeaBreeze';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2510-1@1.0/Ownglyph_the_sea_breeze-Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
+
+/* 앨범 섹션 경계 및 이미지 스타일 */
+#album-section {
+  border-top: 2px solid rgba(0, 0, 0, 0.06);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.album-img {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.album-img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* 앨범 모달: 캐러셀 스타일 화살표 사용, 투명한 버튼 */
+#album-prev,
+#album-next {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* 캐러셀 아이콘을 흰색으로 보이게 조정 */
+#album-prev .carousel-control-prev-icon,
+#album-next .carousel-control-next-icon {
+  width: 28px;
+  height: 28px;
+  background-size: 28px 28px;
+  /* 흰색으로 확실히 보이도록 필터 적용 및 중요도 우선 처리 */
+  filter: invert(1) brightness(2) !important;
+  background-color: transparent !important;
+}
+
+/* 추가: 아이콘이 검정 계열 이미지일 경우에도 흰색으로 보이게 보정 (대체방법) */
+#album-prev .carousel-control-prev-icon::before,
+#album-next .carousel-control-next-icon::before {
+  content: '';
+}
+
+#album-prev:hover,
+#album-next:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.music-control .btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: inherit;
+}
+
+/* 편지 스타일 */
+.envelope {
+  background: linear-gradient(180deg, #fff 0%, #fbfdff 100%) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(201, 166, 107, .45) !important;
+  /* 금박 테두리 */
+  padding: 22px !important;
+  box-shadow: 0 12px 34px rgba(18, 37, 56, .18) !important;
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  perspective: 900px;
+  /* 3D 효과를 위한 원근 */
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 10px;
+  border: 2px solid rgba(201, 166, 107, .55);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .65);
+  pointer-events: none;
+}
+
+.envelope::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 28px;
+  pointer-events: none;
+  background:
+    radial-gradient(12px 12px at 50% 50%, #B80F2E 48%, transparent 50%),
+    linear-gradient(to right, #C41436 0%, #8F0E26 100%);
+  background-repeat: no-repeat;
+  background-size: 24px 24px, 160px 10px;
+  background-position: 50% 50%, 50% 100%;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .25));
+}
+
+.envelope .envelope-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .15;
+  background-image:
+    radial-gradient(2px 2px at 15% 20%, rgba(255, 255, 255, .9) 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 60% 35%, rgba(255, 255, 255, .9) 50%, transparent 52%),
+    radial-gradient(1.8px 1.8px at 30% 75%, rgba(255, 255, 255, .9) 50%, transparent 52%);
+  background-size: 220px 220px;
+}
+
+.envelope .cover {
+  /* 알록달록 캔디케인 대각 스트라이프 (빨강/진초록) */
+  background:
+    /* 굵은 스트라이프 레이어 */
+    repeating-linear-gradient(135deg,
+      rgba(184, 15, 46, .20) 0 12px,
+      /* red 12px */
+      rgba(184, 15, 46, .20) 12px 24px,
+      rgba(12, 70, 50, .20) 24px 36px,
+      /* deep green 12px */
+      rgba(12, 70, 50, .20) 36px 48px,
+      rgba(255, 255, 255, .02) 48px 64px
+      /* 얇은 white 여백 */
+    ),
+    /* 미세 반짝임(눈글리터) */
+    radial-gradient(140px 140px at 20% 25%, rgba(255, 255, 255, .20), transparent 60%),
+    radial-gradient(160px 160px at 80% 70%, rgba(255, 255, 255, .16), transparent 65%),
+    /* 종이 베이스 */
+    linear-gradient(180deg, #ffffff 0%, #f7fafc 100%) !important;
+
+  border-radius: 10px !important;
+  box-shadow: 0 8px 22px rgba(18, 37, 56, .16) !important;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.envelope .cover::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 28px;
+  pointer-events: none;
+  background:
+    /* 중앙 매듭(레드) */
+    radial-gradient(11px 11px at 50% 50%, #B80F2E 48%, transparent 50%),
+    /* 리본 바디: 레드 → 진초록 얇은 라인 */
+    linear-gradient(to right, #C41436 0%, #8F0E26 100%),
+    linear-gradient(to right, rgba(12, 70, 50, .85), rgba(12, 70, 50, .85));
+  /* slim green pin-line */
+  background-repeat: no-repeat;
+  background-size:
+    22px 22px,
+    160px 9px,
+    160px 2px;
+  background-position:
+    50% 50%,
+    50% 100%,
+    50% calc(100% - 11px);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .25));
+}
+
+.envelope .cover::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 68px;
+  height: 68px;
+  pointer-events: none;
+  background:
+    /* 베리 3개 (레드) */
+    radial-gradient(6px 6px at 20% 22%, #B80F2E 55%, transparent 57%),
+    radial-gradient(6px 6px at 40% 40%, #B80F2E 55%, transparent 57%),
+    radial-gradient(6px 6px at 62% 58%, #B80F2E 55%, transparent 57%),
+    /* 솔잎(진초록) */
+    conic-gradient(from 0deg at 50% 50%, #0F3A2E 0 25%, transparent 25% 50%, #0F3A2E 50% 75%, transparent 75% 100%);
+  background-repeat: no-repeat;
+  background-size: 10px 10px, 10px 10px, 10px 10px, 68px 68px;
+  background-position: 6px 8px, 24px 24px, 40px 40px, 0 0;
+  opacity: .82;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .20));
+}
+
+
+/* 클릭 힌트 (깜빡이는 텍스트) */
+.envelope .cover .click-hint {
+  background: rgba(255, 255, 255, .92);
+  color: #0F3A2E;
+  /* 진초록 텍스트 */
+  border: 1px solid rgba(201, 166, 107, .45);
+  box-shadow: 0 6px 16px rgba(18, 37, 56, .15);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 999px;
+  /* background: rgba(255, 255, 255, 0.92); */
+  /* color: #444; */
+  /* box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); */
+  pointer-events: none;
+  /* 클릭은 전체 카드에서 처리 */
+  z-index: 3;
+  animation: clickBlink 1.4s linear infinite;
+}
+
+@keyframes clickBlink {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.15;
+    transform: translateY(-2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.envelope .envelope-content {
+  position: relative;
+  z-index: 1;
+}
+
+.envelope.opening .cover {
+  animation: envelopeOpen 600ms cubic-bezier(.2, .9, .3, 1) forwards;
+}
+
+@keyframes envelopeOpen {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+
+  70% {
+    transform: rotateX(-85deg);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: rotateX(-95deg) translateY(-10%);
+    opacity: 0;
+  }
+}
+
+/* 편지 모달(종이 느낌) */
+/* 종이 배경: 미색 → 겨울 화이트, 가장자리 금박 라인 */
+.letter-paper {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%) !important;
+  border-radius: 14px !important;
+  padding: 32px !important;
+  box-shadow: 0 20px 60px rgba(18, 37, 56, .22) !important;
+  border: 1px solid rgba(201, 166, 107, .45) !important;
+  /* 금사 느낌 */
+  position: relative;
+  isolation: isolate;
+  /* 장식 레이어 겹침 방지 */
+}
+
+/* 테두리 금박 이중선 */
+.letter-paper::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 10px;
+  pointer-events: none;
+  border: 2px solid rgba(201, 166, 107, .55);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .65);
+  z-index: 0;
+}
+
+/* 상단 리본 + 홀리(크리스마스 잎사귀) */
+.letter-paper::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 32px;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    /* 리본 매듭 */
+    radial-gradient(12px 12px at 50% 50%, #B80F2E 48%, transparent 50%),
+    /* 리본 양쪽 */
+    linear-gradient(to right, #C41436 0%, #8F0E26 100%);
+  background-repeat: no-repeat;
+  background-size:
+    24px 24px,
+    180px 12px;
+  background-position:
+    50% 50%,
+    50% 100%;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .25));
+}
+
+/* 제목/메타/본문 색상 톤 */
+.letter-paper h3 {
+  margin-top: 6px !important;
+  color: #0F3A2E !important;
+  /* 딥그린 */
+  letter-spacing: .3px;
+}
+
+.letter-meta {
+  color: green !important;
+  /* 초록 */
+  font-weight: 600;
+}
+
+.letter-body {
+  color: #233542 !important;
+  /* 차분한 네이비 */
+  line-height: 1.65;
+}
+
+/* 눈송이/별 글리터 패턴(아주 은은하게) */
+.letter-paper .xmas-glitter {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .18;
+  background-image:
+    radial-gradient(2px 2px at 15% 20%, rgba(255, 255, 255, .9) 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 60% 35%, rgba(255, 255, 255, .9) 50%, transparent 52%),
+    radial-gradient(1.8px 1.8px at 30% 75%, rgba(255, 255, 255, .9) 50%, transparent 52%),
+    radial-gradient(1.2px 1.2px at 78% 62%, rgba(255, 255, 255, .9) 50%, transparent 52%);
+  background-repeat: repeat;
+  background-size: 220px 220px;
+}
+
+/* 좌우 장식 스탬프 (솔가지 느낌) */
+.letter-paper .xmas-side {
+  content: "";
+  position: absolute;
+  top: 32px;
+  bottom: 32px;
+  width: 10px;
+  pointer-events: none;
+  opacity: .45;
+  background:
+    repeating-linear-gradient(180deg,
+      rgba(15, 58, 46, .85) 0 8px,
+      rgba(15, 58, 46, 0) 8px 16px);
+  box-shadow: inset -2px 0 0 rgba(201, 166, 107, .35);
+}
+
+.letter-paper .xmas-side.left {
+  left: 16px;
+  border-radius: 6px;
+}
+
+.letter-paper .xmas-side.right {
+  right: 16px;
+  border-radius: 6px;
+}
+
+
+
+/* 모바일에서 여백 살짝 확대 */
+@media (max-width: 420px) {
+  .letter-paper {
+    padding: 26px !important;
+  }
+}
+
+
+/* 페이지 책 넘김(플립) 애니메이션 */
+.flip-container {
+  perspective: 1200px;
+}
+
+.flip-panel {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.flip-out {
+  animation: flipOut 600ms cubic-bezier(.2, .9, .3, 1) forwards;
+}
+
+.flip-in {
+  animation: flipIn 600ms cubic-bezier(.2, .9, .3, 1) forwards;
+}
+
+@keyframes flipOut {
+  0% {
+    transform: rotateY(0deg) translateX(0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateY(-100deg) translateX(-18%) scale(0.95);
+    opacity: 0;
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    transform: rotateY(100deg) translateX(18%) scale(0.95);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotateY(0deg) translateX(0) scale(1);
+    opacity: 1;
+  }
 }
