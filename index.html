@@ -1,146 +1,199 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>경모 결혼 축하 페이지</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- 커스텀 CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-    </style>
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+    <style></style>
+  </head>
 
-<body>
+  <body>
     <!-- 배경 음악 (한 번만 재생) -->
-    <audio id="bg-music" src="music/wedding-song.mp3" autoplay loop preload="auto" playsinline></audio>
+    <audio
+      id="bg-music"
+      src="music/wedding-song.mp3"
+      autoplay
+      loop
+      preload="auto"
+      playsinline
+    ></audio>
 
     <!-- 페이지 타이틀 -->
     <div class="flip-container">
-        <section class="hero-section text-center py-3">
-            <h1>🎉 결혼 축하한다! 🎉</h1>
-            <p>결혼 전에 이거 보면서 옛 생각 떠올려봐</p>
-        </section>
+      <section class="hero-section text-center py-3">
+        <h1>🎉 결혼 축하한다! 🎉</h1>
+        <p>결혼 전에 이거 보면서 옛 생각 떠올려봐</p>
+      </section>
 
-        <!-- 사진 슬라이드 -->
-        <section id="carousel-section" class="container py-3">
-            <div id="weddingCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-
-                    <!-- 카드 1 -->
-                    <div class="carousel-item active">
-                        <div class="card">
-                            <img src="images/main1.jpg" class="card-img-top" alt="사진 1" data-bs-toggle="modal"
-                                data-bs-target="#modal1">
-                            <div class="card-body">
-                                <p class="card-text text-center">만남의 설렘</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 카드 2 -->
-                    <div class="carousel-item">
-                        <div class="card">
-                            <img src="images/main2.jpg" class="card-img-top" alt="사진 2" data-bs-toggle="modal"
-                                data-bs-target="#modal2">
-                            <div class="card-body">
-                                <p class="card-text text-center">함께한 여행</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 카드 3 -->
-                    <div class="carousel-item">
-                        <div class="card">
-                            <img src="images/main3.jpg" class="card-img-top" alt="사진 3" data-bs-toggle="modal"
-                                data-bs-target="#modal3">
-                            <div class="card-body">
-                                <p class="card-text text-center">추억의 데이트</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 카드 4 -->
-                    <div class="carousel-item">
-                        <div class="card">
-                            <img src="images/main4.jpg" class="card-img-top" alt="사진 4" data-bs-toggle="modal"
-                                data-bs-target="#modal4">
-                            <div class="card-body">
-                                <p class="card-text text-center">즐거운 순간</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 카드 5 -->
-                    <div class="carousel-item">
-                        <div class="card">
-                            <img src="images/main5.jpg" class="card-img-top" alt="사진 5" data-bs-toggle="modal"
-                                data-bs-target="#modal5">
-                            <div class="card-body">
-                                <p class="card-text text-center">시크한 표정</p>
-                            </div>
-                        </div>
-                    </div>
-
+      <!-- 사진 슬라이드 -->
+      <section id="carousel-section" class="container py-3">
+        <div
+          id="weddingCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <!-- 카드 1 -->
+            <div class="carousel-item active">
+              <div class="card">
+                <img
+                  src="images/main1.jpg"
+                  class="card-img-top"
+                  alt="사진 1"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modal1"
+                />
+                <div class="card-body">
+                  <p class="card-text text-center">만남의 설렘</p>
                 </div>
-
-                <!-- 화살표 -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#weddingCarousel"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#weddingCarousel"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
+              </div>
             </div>
-        </section>
 
-        <!-- 전하고 싶은 말 페이지 넘어가기 -->
-    </div> 
+            <!-- 카드 2 -->
+            <div class="carousel-item">
+              <div class="card">
+                <img
+                  src="images/main2.jpg"
+                  class="card-img-top"
+                  alt="사진 2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modal2"
+                />
+                <div class="card-body">
+                  <p class="card-text text-center">함께한 여행</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 3 -->
+            <div class="carousel-item">
+              <div class="card">
+                <img
+                  src="images/main3.jpg"
+                  class="card-img-top"
+                  alt="사진 3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modal3"
+                />
+                <div class="card-body">
+                  <p class="card-text text-center">추억의 데이트</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 4 -->
+            <div class="carousel-item">
+              <div class="card">
+                <img
+                  src="images/main4.jpg"
+                  class="card-img-top"
+                  alt="사진 4"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modal4"
+                />
+                <div class="card-body">
+                  <p class="card-text text-center">즐거운 순간</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 5 -->
+            <div class="carousel-item">
+              <div class="card">
+                <img
+                  src="images/main5.jpg"
+                  class="card-img-top"
+                  alt="사진 5"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modal5"
+                />
+                <div class="card-body">
+                  <p class="card-text text-center">시크한 표정</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 화살표 -->
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#weddingCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#weddingCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 전하고 싶은 말 페이지 넘어가기 -->
+    </div>
 
     <!-- 추억앨범 섹션 -->
     <section class="message-section text-center py-5">
-        <h3>행복한 결혼생활을 응원한다잉</h3>
-        <p>사랑과 웃음이 가득한 결혼생활 돼라</p>
-        <!-- 앨범 페이지 이동 버튼 -> SPA용 스크롤 버튼 -->
-        <button id="open-album" class="btn btn-outline-secondary mt-3">추억 앨범 보기</button>
+      <h3>행복한 결혼생활을 응원한다잉</h3>
+      <p>사랑과 웃음이 가득한 결혼생활 돼라</p>
+      <!-- 앨범 페이지 이동 버튼 -> SPA용 스크롤 버튼 -->
+      <button id="open-album" class="btn btn-outline-secondary mt-3">
+        추억 앨범 보기
+      </button>
     </section>
 
     <!-- 메시지 섹션 -->
     <section class="message-section text-center py-3">
-        <h3>신혼부부에게 전하는 말</h3>
-        <p>정말 초라하게 작성한거지만, 축하의 메세지</p>
-        <!-- 앨범 페이지 이동 버튼 -> SPA용 스크롤 버튼 -->
-        <button id="open-message" class="btn btn-outline-secondary mt-4"
-            style="box-shadow: 0 8px 18px rgba(90,132,170,.25);">메세지 보기</button>
+      <h3>신혼부부에게 전하는 말</h3>
+      <p>정말 초라하게 작성한거지만, 축하의 메세지</p>
+      <!-- 앨범 페이지 이동 버튼 -> SPA용 스크롤 버튼 -->
+      <button
+        id="open-message"
+        class="btn btn-outline-secondary mt-4"
+        style="box-shadow: 0 8px 18px rgba(90, 132, 170, 0.25)"
+      >
+        메세지 보기
+      </button>
     </section>
-
 
     <!-- 메시지 전용 페이지 (편지 목록) -->
     <section id="message-page" class="container py-5 d-none">
-        <h2 class="mb-4 text-center">신혼부부에게 전하는 편지</h2>
-        <div id="letters-row" class="row g-3 mb-4">
-            <!-- JS가 편지 카드 생성 -->
-        </div>
-        <div class="text-center">
-            <button id="back-home" class="btn btn-outline-secondary">홈으로 돌아가기</button>
-        </div>
+      <h2 class="mb-4 text-center">신혼부부에게 전하는 편지</h2>
+      <div id="letters-row" class="row g-3 mb-4">
+        <!-- JS가 편지 카드 생성 -->
+      </div>
+      <div class="text-center">
+        <button id="back-home" class="btn btn-outline-secondary">
+          홈으로 돌아가기
+        </button>
+      </div>
     </section>
 
     <!-- 추억 앨범 섹션 (동적 생성: 사진 2장씩 표시) -->
     <!-- 기본적으로 페이지 로드 시 보이지 않게 함 (버튼으로 표시) -->
     <section id="album-section" class="container py-4 d-none">
-        <!-- <h2 class="mb-3">추억 앨범</h2> -->
-        <div id="album-row" class="row g-3">
-            <!-- 자바스크립트로 썸네일이 여기 생성됩니다 -->
-        </div>
-        <!-- 홈으로 돌아가기 버튼 추가 -->
-        <div class="text-center mt-3">
-            <button id="back-home-album" class="btn btn-outline-secondary">홈으로 돌아가기</button>
-        </div>
+      <!-- <h2 class="mb-3">추억 앨범</h2> -->
+      <div id="album-row" class="row g-3">
+        <!-- 자바스크립트로 썸네일이 여기 생성됩니다 -->
+      </div>
+      <!-- 홈으로 돌아가기 버튼 추가 -->
+      <div class="text-center mt-3">
+        <button id="back-home-album" class="btn btn-outline-secondary">
+          홈으로 돌아가기
+        </button>
+      </div>
     </section>
 
     <!-- 모달 부분 (사진 확대) -->
@@ -148,76 +201,107 @@
 
     <!-- 앨범 갤러리 모달 (공통) -->
     <div class="modal fade" id="albumModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content bg-transparent border-0 position-relative p-0">
-                <button id="album-prev"
-                    class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y ms-2" type="button"
-                    aria-label="이전">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <img id="album-modal-img" src="" class="w-100 rounded" alt="앨범 사진">
-                <button id="album-next"
-                    class="carousel-control-next position-absolute top-50 end-0 translate-middle-y me-2" type="button"
-                    aria-label="다음">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
-            </div>
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div
+          class="modal-content bg-transparent border-0 position-relative p-0"
+        >
+          <button
+            id="album-prev"
+            class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y ms-2"
+            type="button"
+            aria-label="이전"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <img
+            id="album-modal-img"
+            src=""
+            class="w-100 rounded"
+            alt="앨범 사진"
+          />
+          <button
+            id="album-next"
+            class="carousel-control-next position-absolute top-50 end-0 translate-middle-y me-2"
+            type="button"
+            aria-label="다음"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
         </div>
+      </div>
     </div>
 
     <!-- 편지 읽기 모달 -->
     <div class="modal fade" id="letterModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content border-0 bg-transparent">
-                <div class="position-relative">
-                    <button id="letter-prev"
-                        class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y ms-2"
-                        type="button" aria-label="이전">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="letter-paper mx-3" id="letter-modal-body">
-                        <h3 id="letter-title"></h3>
-                        <div class="letter-meta" id="letter-meta"></div>
-                        <div class="letter-body" id="letter-body"></div>
-                    </div>
-                    <button id="letter-next"
-                        class="carousel-control-next position-absolute top-50 end-0 translate-middle-y me-2"
-                        type="button" aria-label="다음">
-                        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
-                    </button>
-                </div>
+      <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content border-0 bg-transparent">
+          <div class="position-relative">
+            <button
+              id="letter-prev"
+              class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y ms-2"
+              type="button"
+              aria-label="이전"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+            </button>
+            <div class="letter-paper mx-3" id="letter-modal-body">
+              <h3 id="letter-title"></h3>
+              <div class="letter-meta" id="letter-meta"></div>
+              <div class="letter-body" id="letter-body"></div>
             </div>
+            <button
+              id="letter-next"
+              class="carousel-control-next position-absolute top-50 end-0 translate-middle-y me-2"
+              type="button"
+              aria-label="다음"
+            >
+              <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- 인트로 모달: 첫 방문 시 읽는 순서 안내 -->
     <div class="modal fade" id="introModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">한 번 보고 가셔</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
-                </div>
-                <div class="modal-body">
-                    <p>고냥 대충 대충 만들었으니 심심할 때 보셔</p>
-                    <ol>
-                        <li>알아서 잘 보거라 생각한다</li>
-                        <li>요상하게 만든 앨범으로 이동해서 잘 보셔</li>
-                        <li>앨범 다 봤으면 메세지 보기 눌러봐</li>
-                        <li>음악이랑 함께 보셔</li>
-                    </ol>
-                    <div class="form-check mt-2">
-                        <!-- <input class="form-check-input" type="checkbox" value="" id="intro-no-show"> -->
-                        <!-- <label class="form-check-label" for="intro-no-show">다시 보지 않기</label> -->
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">한 번 보고 가셔</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="닫기"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>고냥 대충 대충 만들었으니 심심할 때 보셔</p>
+            <ol>
+              <li>알아서 잘 보거라 생각한다</li>
+              <li>요상하게 만든 앨범으로 이동해서 잘 보셔</li>
+              <li>앨범 다 봤으면 메세지 보기 눌러봐</li>
+              <li>음악이랑 함께 보셔</li>
+            </ol>
+            <div class="form-check mt-2">
+              <!-- <input class="form-check-input" type="checkbox" value="" id="intro-no-show"> -->
+              <!-- <label class="form-check-label" for="intro-no-show">다시 보지 않기</label> -->
 
-                        <button id="enable-bgm" class="btn btn-primary w-100 py-2 mt-2">배경음악 켜기</button>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="intro-start" type="button" class="btn btn-primary">시작하기</button>
-                </div>
+              <button id="enable-bgm" class="btn btn-primary w-100 py-2 mt-2">
+                배경음악 켜기
+              </button>
             </div>
+          </div>
+          <div class="modal-footer">
+            <button id="intro-start" type="button" class="btn btn-primary">
+              시작하기
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Bootstrap JS -->
@@ -227,396 +311,437 @@
 
     <!-- 인트로 모달 표시 스크립트 (첫 방문에만 표시) -->
     <script>
-        (function () {
-            const STORAGE_KEY = 'introSeen_v1';
-            const introModalEl = document.getElementById('introModal');
-            if (!introModalEl) return;
-            const introSeen = localStorage.getItem(STORAGE_KEY);
-            const introModal = new bootstrap.Modal(introModalEl);
+      (function () {
+        const STORAGE_KEY = "introSeen_v1";
+        const introModalEl = document.getElementById("introModal");
+        if (!introModalEl) return;
+        const introSeen = localStorage.getItem(STORAGE_KEY);
+        const introModal = new bootstrap.Modal(introModalEl);
 
-            // 처음 방문이면 모달 표시
-            if (!introSeen) {
-                // 약간 지연시켜 부트스트랩 로드 및 렌더링 안정화
-                setTimeout(() => introModal.show(), 200);
-            }
+        // 처음 방문이면 모달 표시
+        if (!introSeen) {
+          // 약간 지연시켜 부트스트랩 로드 및 렌더링 안정화
+          setTimeout(() => introModal.show(), 200);
+        }
 
-            // 시작 버튼: '다시 보지 않기' 체크 시 로컬스토리지에 저장
-            document.getElementById('intro-start')?.addEventListener('click', () => {
-                const noShow = document.getElementById('intro-no-show')?.checked;
-                if (noShow) localStorage.setItem(STORAGE_KEY, 'true');
-                introModal.hide();
-            });
+        // 시작 버튼: '다시 보지 않기' 체크 시 로컬스토리지에 저장
+        document
+          .getElementById("intro-start")
+          ?.addEventListener("click", () => {
+            const noShow = document.getElementById("intro-no-show")?.checked;
+            if (noShow) localStorage.setItem(STORAGE_KEY, "true");
+            introModal.hide();
+          });
 
-            // 모달이 닫힐 때(단순 닫기)에도 체크박스가 선택되어 있으면 저장
-            introModalEl.addEventListener('hidden.bs.modal', () => {
-                const noShow = document.getElementById('intro-no-show')?.checked;
-                if (noShow) localStorage.setItem(STORAGE_KEY, 'true');
-            });
-        })();
+        // 모달이 닫힐 때(단순 닫기)에도 체크박스가 선택되어 있으면 저장
+        introModalEl.addEventListener("hidden.bs.modal", () => {
+          const noShow = document.getElementById("intro-no-show")?.checked;
+          if (noShow) localStorage.setItem(STORAGE_KEY, "true");
+        });
+      })();
     </script>
 
     <!-- SPA 스크롤 및 히스토리 처리 스크립트 -->
     <script>
-        (function () {
-            const openAlbumBtn = document.getElementById('open-album');
-            const openMessageBtn = document.getElementById('open-message');
-            const albumSection = document.getElementById('album-section');
-            const carouselSection = document.getElementById('carousel-section');
-            const messagePage = document.getElementById('message-page');
-            const bgMusic = document.getElementById('bg-music');
-            // 상단의 CTA/섹션(.message-section)을 모아 제어
-            const messageCTAs = Array.from(document.querySelectorAll('.message-section'));
-            const heroSection = document.querySelector('.hero-section');
-            const flipContainer = document.querySelector('.flip-container');
+      (function () {
+        const openAlbumBtn = document.getElementById("open-album");
+        const openMessageBtn = document.getElementById("open-message");
+        const albumSection = document.getElementById("album-section");
+        const carouselSection = document.getElementById("carousel-section");
+        const messagePage = document.getElementById("message-page");
+        const bgMusic = document.getElementById("bg-music");
+        // 상단의 CTA/섹션(.message-section)을 모아 제어
+        const messageCTAs = Array.from(
+          document.querySelectorAll(".message-section")
+        );
+        const heroSection = document.querySelector(".hero-section");
+        const flipContainer = document.querySelector(".flip-container");
 
-            function showHome(push = true) {
-                // 페이지 타이틀 보이기
-                heroSection?.classList.remove('d-none');
-                // 상단 CTA들 보이게
-                messageCTAs.forEach(el => el.classList.remove('d-none'));
+        function showHome(push = true) {
+          // 페이지 타이틀 보이기
+          heroSection?.classList.remove("d-none");
+          // 상단 CTA들 보이게
+          messageCTAs.forEach((el) => el.classList.remove("d-none"));
 
-                // 만약 앨범이 보이는 상태에서 돌아가는 경우, 책 넘김 애니메이션 실행
-                if (flipContainer && albumSection && !albumSection.classList.contains('d-none')) {
-                    // 준비: 캐러셀 보이게 하고 패널 클래스 부여
-                    -                    carouselSection?.classList.remove('d-none');
-                    +                    carouselSection?.classList.remove('d-none');
-                    carouselSection?.classList.add('flip-panel', 'flip-in');
-                    albumSection?.classList.add('flip-panel', 'flip-out');
+          // 만약 앨범이 보이는 상태에서 돌아가는 경우, 책 넘김 애니메이션 실행
+          if (
+            flipContainer &&
+            albumSection &&
+            !albumSection.classList.contains("d-none")
+          ) {
+            // 준비: 캐러셀 보이게 하고 패널 클래스 부여
+            -carouselSection?.classList.remove("d-none");
+            +carouselSection?.classList.remove("d-none");
+            carouselSection?.classList.add("flip-panel", "flip-in");
+            albumSection?.classList.add("flip-panel", "flip-out");
 
-                    const onEnd = () => {
-                        albumSection.classList.add('d-none');
-                        albumSection.classList.remove('flip-out', 'flip-panel');
-                        carouselSection.classList.remove('flip-in', 'flip-panel');
-                        albumSection.removeEventListener('animationend', onEnd);
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    };
-                    albumSection.addEventListener('animationend', onEnd);
-                } else {
-                    // 일반 복귀: 앨범은 기본적으로 숨김으로 유지
-                    carouselSection?.classList.remove('d-none');
-                    albumSection?.classList.add('d-none');
-                    messagePage?.classList.add('d-none');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
+            const onEnd = () => {
+              albumSection.classList.add("d-none");
+              albumSection.classList.remove("flip-out", "flip-panel");
+              carouselSection.classList.remove("flip-in", "flip-panel");
+              albumSection.removeEventListener("animationend", onEnd);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            };
+            albumSection.addEventListener("animationend", onEnd);
+          } else {
+            // 일반 복귀: 앨범은 기본적으로 숨김으로 유지
+            carouselSection?.classList.remove("d-none");
+            albumSection?.classList.add("d-none");
+            messagePage?.classList.add("d-none");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
 
-                if (push) history.pushState({ page: 'home' }, '', '#');
-            }
+          if (push) history.pushState({ page: "home" }, "", "#");
+        }
 
-            function showAlbum(push = true) {
-                // 메시지 페이지 숨김 및 상단 CTA 숨김
-                messagePage?.classList.add('d-none');
-                messageCTAs.forEach(el => el.classList.add('d-none'));
-                +                // 페이지 타이틀 보이기
-                    +                heroSection?.classList.remove('d-none');
+        function showAlbum(push = true) {
+          // 메시지 페이지 숨김 및 상단 CTA 숨김
+          messagePage?.classList.add("d-none");
+          messageCTAs.forEach((el) => el.classList.add("d-none"));
+          +(
+            // 페이지 타이틀 보이기
+            (+heroSection?.classList.remove("d-none"))
+          );
 
-                // 책 넘김 애니메이션이 가능한 경우: 캐러셀에서 앨범으로 넘김
-                if (flipContainer && carouselSection) {
-                    // 준비: 앨범을 미리 보이게 하고 애니메이션 부여
-                    albumSection?.classList.remove('d-none');
-                    carouselSection.classList.add('flip-panel', 'flip-out');
-                    albumSection.classList.add('flip-panel', 'flip-in');
+          // 책 넘김 애니메이션이 가능한 경우: 캐러셀에서 앨범으로 넘김
+          if (flipContainer && carouselSection) {
+            // 준비: 앨범을 미리 보이게 하고 애니메이션 부여
+            albumSection?.classList.remove("d-none");
+            carouselSection.classList.add("flip-panel", "flip-out");
+            albumSection.classList.add("flip-panel", "flip-in");
 
-                    const onEnd = () => {
-                        // 애니메이션 끝나면 캐러셀 숨기고 클래스 정리
-                        carouselSection.classList.add('d-none');
-                        carouselSection.classList.remove('flip-out', 'flip-panel');
-                        albumSection.classList.remove('flip-in', 'flip-panel');
-                        albumSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        carouselSection.removeEventListener('animationend', onEnd);
-                    };
-                    // animationend는 아웃 애니메이션을 실행한 쪽에서 일어나므로 carouselSection에 바인드
-                    carouselSection.addEventListener('animationend', onEnd);
-                } else {
-                    // 애니메이션 불가 시 일반 동작
-                    carouselSection?.classList.remove('d-none');
-                    albumSection?.classList.remove('d-none');
-                    albumSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-
-                if (push) history.pushState({ page: 'album' }, '', '#album');
-            }
-
-            function showMessage(push = true) {
-                +                // 페이지 타이틀 숨기기
-                    +                heroSection?.classList.add('d-none');
-                +                // 메시지 전용 페이지를 보이게 하고 다른 섹션은 숨김
-                    +                carouselSection?.classList.add('d-none');
-                +                albumSection?.classList.add('d-none');
-                +                messagePage?.classList.remove('d-none');
-                // 상단 CTA들 숨김
-                messageCTAs.forEach(el => el.classList.add('d-none'));
-                messagePage?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                if (push) history.pushState({ page: 'message' }, '', '#message');
-            }
-
-            openAlbumBtn?.addEventListener('click', () => showAlbum());
-            openMessageBtn?.addEventListener('click', () => showMessage());
-            document.getElementById('back-home')?.addEventListener('click', () => showHome());
-            // 앨범 섹션 하단의 홈 버튼
-            document.getElementById('back-home-album')?.addEventListener('click', () => showHome());
-
-            // popstate 처리: 해시에 따라 상태 복구
-            window.addEventListener('popstate', () => {
-                const h = location.hash;
-                if (h === '#album') showAlbum(false);
-                else if (h === '#message') showMessage(false);
-                else showHome(false);
+            const onEnd = () => {
+              // 애니메이션 끝나면 캐러셀 숨기고 클래스 정리
+              carouselSection.classList.add("d-none");
+              carouselSection.classList.remove("flip-out", "flip-panel");
+              albumSection.classList.remove("flip-in", "flip-panel");
+              albumSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+              carouselSection.removeEventListener("animationend", onEnd);
+            };
+            // animationend는 아웃 애니메이션을 실행한 쪽에서 일어나므로 carouselSection에 바인드
+            carouselSection.addEventListener("animationend", onEnd);
+          } else {
+            // 애니메이션 불가 시 일반 동작
+            carouselSection?.classList.remove("d-none");
+            albumSection?.classList.remove("d-none");
+            albumSection?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
+          }
 
-            // 초기 로드 시 해시가 있으면 해당 위치로 처리
-            if (location.hash === '#album') showAlbum(false);
-            else if (location.hash === '#message') showMessage(false);
+          if (push) history.pushState({ page: "album" }, "", "#album");
+        }
 
-            // 기존 BGM 토글(간단 유지)
-            const musicBtn = document.getElementById('music-btn');
-            // 버튼 텍스트 상태 반영
-            function updateMusicBtn() {
-                if (!musicBtn || !bgMusic) return;
-                // 음소거 또는 재생중이 아니면 '작게' 아이콘
-                if (bgMusic.muted || bgMusic.paused) musicBtn.textContent = 'BGM 🔈';
-                else musicBtn.textContent = 'BGM 🔊';
+        function showMessage(push = true) {
+          +(
+            // 페이지 타이틀 숨기기
+            (+heroSection?.classList.add("d-none"))
+          );
+          +(
+            // 메시지 전용 페이지를 보이게 하고 다른 섹션은 숨김
+            (+carouselSection?.classList.add("d-none"))
+          );
+          +albumSection?.classList.add("d-none");
+          +messagePage?.classList.remove("d-none");
+          // 상단 CTA들 숨김
+          messageCTAs.forEach((el) => el.classList.add("d-none"));
+          messagePage?.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (push) history.pushState({ page: "message" }, "", "#message");
+        }
+
+        openAlbumBtn?.addEventListener("click", () => showAlbum());
+        openMessageBtn?.addEventListener("click", () => showMessage());
+        document
+          .getElementById("back-home")
+          ?.addEventListener("click", () => showHome());
+        // 앨범 섹션 하단의 홈 버튼
+        document
+          .getElementById("back-home-album")
+          ?.addEventListener("click", () => showHome());
+
+        // popstate 처리: 해시에 따라 상태 복구
+        window.addEventListener("popstate", () => {
+          const h = location.hash;
+          if (h === "#album") showAlbum(false);
+          else if (h === "#message") showMessage(false);
+          else showHome(false);
+        });
+
+        // 초기 로드 시 해시가 있으면 해당 위치로 처리
+        if (location.hash === "#album") showAlbum(false);
+        else if (location.hash === "#message") showMessage(false);
+
+        // 기존 BGM 토글(간단 유지)
+        const musicBtn = document.getElementById("music-btn");
+        // 버튼 텍스트 상태 반영
+        function updateMusicBtn() {
+          if (!musicBtn || !bgMusic) return;
+          // 음소거 또는 재생중이 아니면 '작게' 아이콘
+          if (bgMusic.muted || bgMusic.paused) musicBtn.textContent = "BGM 🔈";
+          else musicBtn.textContent = "BGM 🔊";
+        }
+
+        // 초기 상태 반영 (오디오 로드가 늦을 수 있어 약간 지연)
+        setTimeout(updateMusicBtn, 150);
+
+        musicBtn?.addEventListener("click", async () => {
+          if (!bgMusic) return;
+          if (bgMusic.muted) {
+            // 음소거 해제 후 재생 시도
+            bgMusic.muted = false;
+            try {
+              await bgMusic.play();
+            } catch (e) {
+              // 재생 실패 시 현재 위치 초기화 후 재시도
+              try {
+                bgMusic.currentTime = 0;
+                await bgMusic.play();
+              } catch (e) {}
             }
-
-            // 초기 상태 반영 (오디오 로드가 늦을 수 있어 약간 지연)
-            setTimeout(updateMusicBtn, 150);
-
-            musicBtn?.addEventListener('click', async () => {
-                if (!bgMusic) return;
-                if (bgMusic.muted) {
-                    // 음소거 해제 후 재생 시도
-                    bgMusic.muted = false;
-                    try {
-                        await bgMusic.play();
-                    } catch (e) {
-                        // 재생 실패 시 현재 위치 초기화 후 재시도
-                        try { bgMusic.currentTime = 0; await bgMusic.play(); } catch (e) { }
-                    }
-                } else {
-                    // 음소거 (일시정지 대신 음소거)
-                    bgMusic.muted = true;
-                }
-                updateMusicBtn();
-            });
-        })();
+          } else {
+            // 음소거 (일시정지 대신 음소거)
+            bgMusic.muted = true;
+          }
+          updateMusicBtn();
+        });
+      })();
     </script>
 
     <script>
-        (function () {
-            // 기존 SPA 및 BGM 로직은 위에 그대로 유지됩니다.
+      (function () {
+        // 기존 SPA 및 BGM 로직은 위에 그대로 유지됩니다.
 
-            // --- 썸네일 동적 생성 ---
-            // 여기에 표시할 이미지 파일 경로를 배열에 추가하세요.
-            const albumImages = [
-                'images/sub1.jpg',
-                'images/sub2.jpg',
-                'images/sub3.jpg',
-                'images/sub4.jpg',
-                'images/sub5.jpg',
-                'images/sub6.jpg',
-                'images/sub7.jpg',
-                'images/sub8.jpg',
-                'images/sub9.jpg',
-                'images/sub10.jpg',
-                'images/sub11.jpg',
-                'images/sub12.jpg',
-                'images/sub13.jpg',
-                'images/sub14.jpg',
-                'images/sub15.jpg',
-                'images/sub16.jpg',
-                'images/sub17.jpg',
-                'images/sub18.jpg',
-                'images/sub19.jpg',
-                'images/sub20.jpg',
-                'images/sub21.jpg',
-                'images/sub22.jpg',
-                'images/sub23.jpg',
-                'images/sub24.jpg',
-                'images/sub25.jpg',
-            ];
+        // --- 썸네일 동적 생성 ---
+        // 여기에 표시할 이미지 파일 경로를 배열에 추가하세요.
+        const albumImages = [
+          "images/sub1.jpg",
+          "images/sub2.jpg",
+          "images/sub3.jpg",
+          "images/sub4.jpg",
+          "images/sub5.jpg",
+          "images/sub6.jpg",
+          "images/sub7.jpg",
+          "images/sub8.jpg",
+          "images/sub9.jpg",
+          "images/sub10.jpg",
+          "images/sub11.jpg",
+          "images/sub12.jpg",
+          "images/sub13.jpg",
+          "images/sub14.jpg",
+          "images/sub15.jpg",
+          "images/sub16.jpg",
+          "images/sub17.jpg",
+          "images/sub18.jpg",
+          "images/sub19.jpg",
+          "images/sub20.jpg",
+          "images/sub21.jpg",
+          "images/sub22.jpg",
+          "images/sub23.jpg",
+          "images/sub24.jpg",
+          "images/sub25.jpg",
+        ];
 
-            const albumRow = document.getElementById('album-row');
-            albumImages.forEach((src, idx) => {
-                const col = document.createElement('div');
-                col.className = 'col-6';
-                col.innerHTML = `<img src="${src}" class="img-fluid rounded album-img album-thumb" data-index="${idx}" alt="">`;
-                albumRow.appendChild(col);
-            });
+        const albumRow = document.getElementById("album-row");
+        albumImages.forEach((src, idx) => {
+          const col = document.createElement("div");
+          col.className = "col-6";
+          col.innerHTML = `<img src="${src}" class="img-fluid rounded album-img album-thumb" data-index="${idx}" alt="">`;
+          albumRow.appendChild(col);
+        });
 
-            // --- 앨범 갤러리 제어 ---
-            const albumThumbs = Array.from(document.querySelectorAll('.album-thumb'));
-            const albumThumbSrcs = albumThumbs.map(t => t.getAttribute('src'));
-            const carouselCardImgs = Array.from(document.querySelectorAll('.card .card-img-top'));
-            const carouselCardSrcs = carouselCardImgs.map(i => i.getAttribute('src'));
-            const albumModalEl = document.getElementById('albumModal');
-            const albumModalImg = document.getElementById('album-modal-img');
-            const prevBtn = document.getElementById('album-prev');
-            const nextBtn = document.getElementById('album-next');
-            let currentIndex = 0;
-            let bsAlbumModal = null;
-            // activeList: 현재 모달에서 순회할 이미지 src 배열 (기본: 앨범 썸네일)
-            let activeList = albumThumbSrcs.slice();
+        // --- 앨범 갤러리 제어 ---
+        const albumThumbs = Array.from(
+          document.querySelectorAll(".album-thumb")
+        );
+        const albumThumbSrcs = albumThumbs.map((t) => t.getAttribute("src"));
+        const carouselCardImgs = Array.from(
+          document.querySelectorAll(".card .card-img-top")
+        );
+        const carouselCardSrcs = carouselCardImgs.map((i) =>
+          i.getAttribute("src")
+        );
+        const albumModalEl = document.getElementById("albumModal");
+        const albumModalImg = document.getElementById("album-modal-img");
+        const prevBtn = document.getElementById("album-prev");
+        const nextBtn = document.getElementById("album-next");
+        let currentIndex = 0;
+        let bsAlbumModal = null;
+        // activeList: 현재 모달에서 순회할 이미지 src 배열 (기본: 앨범 썸네일)
+        let activeList = albumThumbSrcs.slice();
 
-            function openAlbumAt(index, list = activeList) {
-                if (!list || !list.length) return;
-                activeList = list; // 현재 활성 목록 설정
-                currentIndex = (index + list.length) % list.length;
-                const src = list[currentIndex];
-                albumModalImg.setAttribute('src', src);
-                if (!bsAlbumModal) bsAlbumModal = new bootstrap.Modal(albumModalEl);
-                bsAlbumModal.show();
+        function openAlbumAt(index, list = activeList) {
+          if (!list || !list.length) return;
+          activeList = list; // 현재 활성 목록 설정
+          currentIndex = (index + list.length) % list.length;
+          const src = list[currentIndex];
+          albumModalImg.setAttribute("src", src);
+          if (!bsAlbumModal) bsAlbumModal = new bootstrap.Modal(albumModalEl);
+          bsAlbumModal.show();
+        }
+
+        function showNext() {
+          openAlbumAt(currentIndex + 1, activeList);
+        }
+        function showPrev() {
+          openAlbumAt(currentIndex - 1, activeList);
+        }
+
+        // 기존 앨범 썸네일 클릭: 앨범 목록으로 연다
+        albumThumbs.forEach((thumb, idx) => {
+          thumb.style.cursor = "pointer";
+          thumb.addEventListener("click", () => {
+            openAlbumAt(idx, albumThumbSrcs);
+          });
+        });
+
+        // 캐러셀 카드(.card-img-top) 클릭 시 캐러셀 이미지 리스트만 보여주기
+        document.querySelectorAll(".card .card-img-top").forEach((imgEl) => {
+          imgEl.style.cursor = "zoom-in";
+          imgEl.addEventListener("click", (e) => {
+            const src = imgEl.getAttribute("src");
+            // 캐러셀 목록에서 인덱스 찾기
+            const matchInCarousel = carouselCardSrcs.findIndex(
+              (s) => s === src
+            );
+            if (matchInCarousel >= 0) {
+              openAlbumAt(matchInCarousel, carouselCardSrcs);
+              return;
             }
+            // 아니면 앨범 썸네일 목록에서 찾아 열기
+            const matchIdx = albumThumbSrcs.findIndex((s) => s === src);
+            if (matchIdx >= 0) {
+              openAlbumAt(matchIdx, albumThumbSrcs);
+            } else {
+              // 일치하는 항목이 없으면 현재 activeList로 표시 (기본 동작)
+              openAlbumAt(0, [src]);
+            }
+          });
+        });
 
-            function showNext() { openAlbumAt(currentIndex + 1, activeList); }
-            function showPrev() { openAlbumAt(currentIndex - 1, activeList); }
+        nextBtn?.addEventListener("click", showNext);
+        prevBtn?.addEventListener("click", showPrev);
 
-            // 기존 앨범 썸네일 클릭: 앨범 목록으로 연다
-            albumThumbs.forEach((thumb, idx) => {
-                thumb.style.cursor = 'pointer';
-                thumb.addEventListener('click', () => {
-                    openAlbumAt(idx, albumThumbSrcs);
-                });
-            });
-
-            // 캐러셀 카드(.card-img-top) 클릭 시 캐러셀 이미지 리스트만 보여주기
-            document.querySelectorAll('.card .card-img-top').forEach(imgEl => {
-                imgEl.style.cursor = 'zoom-in';
-                imgEl.addEventListener('click', (e) => {
-                    const src = imgEl.getAttribute('src');
-                    // 캐러셀 목록에서 인덱스 찾기
-                    const matchInCarousel = carouselCardSrcs.findIndex(s => s === src);
-                    if (matchInCarousel >= 0) {
-                        openAlbumAt(matchInCarousel, carouselCardSrcs);
-                        return;
-                    }
-                    // 아니면 앨범 썸네일 목록에서 찾아 열기
-                    const matchIdx = albumThumbSrcs.findIndex(s => s === src);
-                    if (matchIdx >= 0) {
-                        openAlbumAt(matchIdx, albumThumbSrcs);
-                    } else {
-                        // 일치하는 항목이 없으면 현재 activeList로 표시 (기본 동작)
-                        openAlbumAt(0, [src]);
-                    }
-                });
-            });
-
-            nextBtn?.addEventListener('click', showNext);
-            prevBtn?.addEventListener('click', showPrev);
-
-            // 키보드 제어: 왼쪽/오른쪽/ESC
-            document.addEventListener('keydown', (e) => {
-                if (!albumModalEl.classList.contains('show')) return;
-                if (e.key === 'ArrowRight') showNext();
-                else if (e.key === 'ArrowLeft') showPrev();
-                else if (e.key === 'Escape') bsAlbumModal?.hide();
-            });
-
-        })();
+        // 키보드 제어: 왼쪽/오른쪽/ESC
+        document.addEventListener("keydown", (e) => {
+          if (!albumModalEl.classList.contains("show")) return;
+          if (e.key === "ArrowRight") showNext();
+          else if (e.key === "ArrowLeft") showPrev();
+          else if (e.key === "Escape") bsAlbumModal?.hide();
+        });
+      })();
     </script>
 
     <script>
-        (function () {
-            // --- 편지 데이터(예시) ---
-            const letters = [
-                { title: '함께한 시간에', body: `넝줏기깅릭저다 갓안 가다아 해기이에 이풉온깨건 촞으읜손으면 으동쿤기농 갈닥자까지 톨톳엠비라고. 옵싄다 조히눤 닌까학치가 혹감온으죶 더녜조고 었선섬갭아 시슈노트는 즘자딜자에게 언섹앰겨. 햇돈카방으로 실인어도 디가애는 절칸데구힢은 호은이지 헉배 자틸리이다 겡징의 샌앙의 두봔그엉읩둠의 졘주에. 험치며 대지간다 등사를 엑널미 이운테의 갸 가캉냉. 안뫄에 빠셀이푠 꼉까으와 니힝 로븡애곱을 주모믈. 안시존일타눈와눈고 넨거릿고 자칸이곡극싸의 이슬쒂시고 루뢈 엤띤다 버더시로 거읍승바파로.`, author: '친구 A' }
-            ];
+      (function () {
+        // --- 편지 데이터(예시) ---
+        const letters = [
+          {
+            title: "함께한 시간에",
+            body: `넝줏기깅릭저다 갓안 가다아 해기이에 이풉온깨건 촞으읜손으면 으동쿤기농 갈닥자까지 톨톳엠비라고. 옵싄다 조히눤 닌까학치가 혹감온으죶 더녜조고 었선섬갭아 시슈노트는 즘자딜자에게 언섹앰겨. 햇돈카방으로 실인어도 디가애는 절칸데구힢은 호은이지 헉배 자틸리이다 겡징의 샌앙의 두봔그엉읩둠의 졘주에. 험치며 대지간다 등사를 엑널미 이운테의 갸 가캉냉. 안뫄에 빠셀이푠 꼉까으와 니힝 로븡애곱을 주모믈. 안시존일타눈와눈고 넨거릿고 자칸이곡극싸의 이슬쒂시고 루뢈 엤띤다 버더시로 거읍승바파로.`,
+            author: "친구 A",
+          },
+        ];
 
-            // 편지 목록 생성
-            const lettersRow = document.getElementById('letters-row');
-            letters.forEach((it, idx) => {
-                const col = document.createElement('div');
-                col.className = 'col-12 col-md-6';
-                col.innerHTML = `
+        // 편지 목록 생성
+        const lettersRow = document.getElementById("letters-row");
+        letters.forEach((it, idx) => {
+          const col = document.createElement("div");
+          col.className = "col-12 col-md-6";
+          col.innerHTML = `
                     <div class="envelope" data-index="${idx}">
                         <div class="cover" aria-hidden="true"><div class="click-hint" aria-hidden="true">터치해봐!</div></div>
                         <div class="envelope-content">
                             <div class="from">${it.author}</div>
                             <div class="title">${it.title}</div>
-                            <div class="preview">${it.body.replace(/\n/g, ' ').slice(0, 80)}${it.body.length > 80 ? '...' : ''}</div>
+                            <div class="preview">${it.body
+                              .replace(/\n/g, " ")
+                              .slice(0, 80)}${
+            it.body.length > 80 ? "..." : ""
+          }</div>
                         </div>
                     </div>
                 `;
-                lettersRow.appendChild(col);
-            });
+          lettersRow.appendChild(col);
+        });
 
-            // 모달 제어
-            const letterModalEl = document.getElementById('letterModal');
-            const letterTitle = document.getElementById('letter-title');
-            const letterMeta = document.getElementById('letter-meta');
-            const letterBody = document.getElementById('letter-body');
-            const prevBtn = document.getElementById('letter-prev');
-            const nextBtn = document.getElementById('letter-next');
-            let current = 0;
-            let bsLetter = null;
+        // 모달 제어
+        const letterModalEl = document.getElementById("letterModal");
+        const letterTitle = document.getElementById("letter-title");
+        const letterMeta = document.getElementById("letter-meta");
+        const letterBody = document.getElementById("letter-body");
+        const prevBtn = document.getElementById("letter-prev");
+        const nextBtn = document.getElementById("letter-next");
+        let current = 0;
+        let bsLetter = null;
 
-            function openLetterAt(i) {
-                current = (i + letters.length) % letters.length;
-                const it = letters[current];
-                letterTitle.textContent = it.title;
-                letterMeta.textContent = it.author;
-                letterBody.textContent = it.body;
-                if (!bsLetter) bsLetter = new bootstrap.Modal(letterModalEl);
-                bsLetter.show();
-            }
+        function openLetterAt(i) {
+          current = (i + letters.length) % letters.length;
+          const it = letters[current];
+          letterTitle.textContent = it.title;
+          letterMeta.textContent = it.author;
+          letterBody.textContent = it.body;
+          if (!bsLetter) bsLetter = new bootstrap.Modal(letterModalEl);
+          bsLetter.show();
+        }
 
-            // 클릭하면 편지지 열리는 애니메이션 후 모달 오픈
-            lettersRow.querySelectorAll('.envelope').forEach(el => {
-                el.style.cursor = 'pointer';
-                el.addEventListener('click', () => {
-                    if (el.classList.contains('opening')) return; // 중복 실행 방지
-                    el.classList.add('opening');
+        // 클릭하면 편지지 열리는 애니메이션 후 모달 오픈
+        lettersRow.querySelectorAll(".envelope").forEach((el) => {
+          el.style.cursor = "pointer";
+          el.addEventListener("click", () => {
+            if (el.classList.contains("opening")) return; // 중복 실행 방지
+            el.classList.add("opening");
 
-                    // 애니메이션 끝나면 모달 오픈
-                    const done = () => {
-                        el.removeEventListener('animationend', done);
-                        // 애니메이션 클래스 제거하여 상태 복구
-                        el.classList.remove('opening');
-                        const idx = parseInt(el.dataset.index || '0', 10);
-                        openLetterAt(idx);
-                    };
+            // 애니메이션 끝나면 모달 오픈
+            const done = () => {
+              el.removeEventListener("animationend", done);
+              // 애니메이션 클래스 제거하여 상태 복구
+              el.classList.remove("opening");
+              const idx = parseInt(el.dataset.index || "0", 10);
+              openLetterAt(idx);
+            };
 
-                    // 안전하게 animationend를 기다리거나 700ms 후에 강제 실행
-                    el.addEventListener('animationend', done);
-                    setTimeout(() => {
-                        if (el.classList.contains('opening')) {
-                            // 타임아웃으로 처리 (브라우저가 animationend를 발생시키지 못할 경우)
-                            el.classList.remove('opening');
-                            const idx = parseInt(el.dataset.index || '0', 10);
-                            openLetterAt(idx);
-                        }
-                    }, 700);
-                });
-            });
+            // 안전하게 animationend를 기다리거나 700ms 후에 강제 실행
+            el.addEventListener("animationend", done);
+            setTimeout(() => {
+              if (el.classList.contains("opening")) {
+                // 타임아웃으로 처리 (브라우저가 animationend를 발생시키지 못할 경우)
+                el.classList.remove("opening");
+                const idx = parseInt(el.dataset.index || "0", 10);
+                openLetterAt(idx);
+              }
+            }, 700);
+          });
+        });
 
-            nextBtn?.addEventListener('click', () => openLetterAt(current + 1));
-            prevBtn?.addEventListener('click', () => openLetterAt(current - 1));
+        nextBtn?.addEventListener("click", () => openLetterAt(current + 1));
+        prevBtn?.addEventListener("click", () => openLetterAt(current - 1));
 
-            document.addEventListener('keydown', (e) => {
-                if (!letterModalEl.classList.contains('show')) return;
-                if (e.key === 'ArrowRight') openLetterAt(current + 1);
-                else if (e.key === 'ArrowLeft') openLetterAt(current - 1);
-                else if (e.key === 'Escape') bsLetter?.hide();
-            });
-
-        })();
-
-
+        document.addEventListener("keydown", (e) => {
+          if (!letterModalEl.classList.contains("show")) return;
+          if (e.key === "ArrowRight") openLetterAt(current + 1);
+          else if (e.key === "ArrowLeft") openLetterAt(current - 1);
+          else if (e.key === "Escape") bsLetter?.hide();
+        });
+      })();
     </script>
-
 
     <!-- <div class="snow"></div> -->
     <div class="snow snow-front"></div>
     <div class="snow-dim"></div>
     <div id="flakes"></div>
 
-
     <script>
-        /* SVG 눈결정 생성기: 3종 패턴, 이미지 파일 불필요 */
-        (function () {
-            const wrap = document.getElementById('flakes');
-            if (!wrap) return;
+      /* SVG 눈결정 생성기: 3종 패턴, 이미지 파일 불필요 */
+      (function () {
+        const wrap = document.getElementById("flakes");
+        if (!wrap) return;
 
-            // === 3종 SVG 패턴 (가벼운 라인 결정) ===
-            const S1 = `
+        // === 3종 SVG 패턴 (가벼운 라인 결정) ===
+        const S1 = `
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <g transform="translate(12,12)">
         <line x1="-10" y1="0" x2="10" y2="0"/>
@@ -625,7 +750,7 @@
         <line x1="-7.07" y1="7.07" x2="7.07" y2="-7.07"/>
       </g>
     </svg>`;
-            const S2 = `
+        const S2 = `
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <g transform="translate(12,12)">
         <path d="M0,-10 L0,10 M-8.66,5 L8.66,-5 M-8.66,-5 L8.66,5"/>
@@ -633,7 +758,7 @@
         <path d="M-8.66,5 l3,-2 M-8.66,5 l3,2 M8.66,-5 l-3,2 M8.66,-5 l-3,-2"/>
       </g>
     </svg>`;
-            const S3 = `
+        const S3 = `
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <g transform="translate(12,12)">
         <circle r="2"/>
@@ -644,97 +769,102 @@
       </g>
     </svg>`;
 
-            const SVGs = [S1, S2, S3];
+        const SVGs = [S1, S2, S3];
 
-            // === 파라미터(원하는 느낌으로 조절) ===
-            const COUNT = 90;    // 동시 존재 수 (모바일 50~70, 데스크톱 90~140 권장)
-            const MIN_DUR = 10;    // 낙하 최소 지속(초)
-            const MAX_DUR = 18;    // 낙하 최대 지속(초)
-            const MIN_SIZE = 0.7;   // 최소 스케일
-            const MAX_SIZE = 1.6;   // 최대 스케일
-            const SWAY_MIN = 60;    // 좌우 진폭 최소(px)
-            const SWAY_MAX = 120;   // 좌우 진폭 최대(px)
+        // === 파라미터(원하는 느낌으로 조절) ===
+        const COUNT = 90; // 동시 존재 수 (모바일 50~70, 데스크톱 90~140 권장)
+        const MIN_DUR = 10; // 낙하 최소 지속(초)
+        const MAX_DUR = 18; // 낙하 최대 지속(초)
+        const MIN_SIZE = 0.7; // 최소 스케일
+        const MAX_SIZE = 1.6; // 최대 스케일
+        const SWAY_MIN = 60; // 좌우 진폭 최소(px)
+        const SWAY_MAX = 120; // 좌우 진폭 최대(px)
 
-            const rand = (a, b) => Math.random() * (b - a) + a;
-            const pick = arr => arr[(Math.random() * arr.length) | 0];
+        const rand = (a, b) => Math.random() * (b - a) + a;
+        const pick = (arr) => arr[(Math.random() * arr.length) | 0];
 
-            function spawn() {
-                const node = document.createElement('div');
-                node.className = 'snowflake ' + (Math.random() < 0.6 ? 'front' : 'back');
-                node.innerHTML = pick(SVGs);
+        function spawn() {
+          const node = document.createElement("div");
+          node.className =
+            "snowflake " + (Math.random() < 0.6 ? "front" : "back");
+          node.innerHTML = pick(SVGs);
 
-                // 랜덤 속성
-                const startVW = rand(0, 100);                     // 시작 X (vw)
-                const s = rand(MIN_SIZE, MAX_SIZE).toFixed(2);    // 크기
-                const sway = (Math.random() < 0.5 ? -1 : 1) * rand(SWAY_MIN, SWAY_MAX); // 좌우 폭
-                const dur = rand(MIN_DUR, MAX_DUR).toFixed(2);
-                const delay = rand(-MAX_DUR, 0).toFixed(2);       // 음수 딜레이로 중간부터 시작 효과
+          // 랜덤 속성
+          const startVW = rand(0, 100); // 시작 X (vw)
+          const s = rand(MIN_SIZE, MAX_SIZE).toFixed(2); // 크기
+          const sway =
+            (Math.random() < 0.5 ? -1 : 1) * rand(SWAY_MIN, SWAY_MAX); // 좌우 폭
+          const dur = rand(MIN_DUR, MAX_DUR).toFixed(2);
+          const delay = rand(-MAX_DUR, 0).toFixed(2); // 음수 딜레이로 중간부터 시작 효과
 
-                node.style.left = startVW + 'vw';
-                node.style.setProperty('--x', '0px');
-                node.style.setProperty('--s', s);
-                node.style.setProperty('--sw', sway + 'px');
-                node.style.animation = `fall-sway-rotate ${dur}s linear ${delay}s infinite`;
+          node.style.left = startVW + "vw";
+          node.style.setProperty("--x", "0px");
+          node.style.setProperty("--s", s);
+          node.style.setProperty("--sw", sway + "px");
+          node.style.animation = `fall-sway-rotate ${dur}s linear ${delay}s infinite`;
 
-                wrap.appendChild(node);
+          wrap.appendChild(node);
 
-                // 주기 끝나면 재생성(밀도 유지)
-                setTimeout(() => {
-                    if (node.isConnected) {
-                        node.remove();
-                        spawn();
-                    }
-                }, parseFloat(dur) * 1000);
+          // 주기 끝나면 재생성(밀도 유지)
+          setTimeout(() => {
+            if (node.isConnected) {
+              node.remove();
+              spawn();
             }
+          }, parseFloat(dur) * 1000);
+        }
 
-            // 초기 생성
-            for (let i = 0; i < COUNT; i++) spawn();
+        // 초기 생성
+        for (let i = 0; i < COUNT; i++) spawn();
 
-            // 리사이즈 시 과다/부족 보정
-            let t;
-            window.addEventListener('resize', () => {
-                clearTimeout(t);
-                t = setTimeout(() => {
-                    const cur = wrap.children.length;
-                    if (cur > COUNT) {
-                        [...wrap.children].slice(0, cur - COUNT).forEach(n => n.remove());
-                    } else {
-                        while (wrap.children.length < COUNT) spawn();
-                    }
-                }, 180);
-            });
-        })();
+        // 리사이즈 시 과다/부족 보정
+        let t;
+        window.addEventListener("resize", () => {
+          clearTimeout(t);
+          t = setTimeout(() => {
+            const cur = wrap.children.length;
+            if (cur > COUNT) {
+              [...wrap.children]
+                .slice(0, cur - COUNT)
+                .forEach((n) => n.remove());
+            } else {
+              while (wrap.children.length < COUNT) spawn();
+            }
+          }, 180);
+        });
+      })();
     </script>
     <script>
-(function(){
-  
-  // #album-section 내부에 "필름스트립 캐러셀" 섹션을 1회 생성
-  const albumSection = document.getElementById('album-section');
-  const openBtn = document.getElementById('open-album');
+      (function () {
+        // #album-section 내부에 "필름스트립 캐러셀" 섹션을 1회 생성
+        const albumSection = document.getElementById("album-section");
+        const openBtn = document.getElementById("open-album");
 
-  function buildFilmstripFromAlbum(){
-    if (!albumSection || albumSection.dataset.filmstripReady === '1') return;
+        function buildFilmstripFromAlbum() {
+          if (!albumSection || albumSection.dataset.filmstripReady === "1")
+            return;
 
-    // 이미 동적 생성된 앨범 썸네일을 데이터 소스로 사용
-    const thumbs = albumSection.querySelectorAll('.album-thumb');
-    if (!thumbs.length) return; // 썸네일이 아직 없으면 생성 보류
+          // 이미 동적 생성된 앨범 썸네일을 데이터 소스로 사용
+          const thumbs = albumSection.querySelectorAll(".album-thumb");
+          if (!thumbs.length) return; // 썸네일이 아직 없으면 생성 보류
 
-    const images = Array.from(thumbs).map(img => ({
-      src: img.getAttribute('src'),
-      alt: img.getAttribute('alt') || ''
-    }));
+          const images = Array.from(thumbs).map((img) => ({
+            src: img.getAttribute("src"),
+            alt: img.getAttribute("alt") || "",
+          }));
 
-    // 3장씩 묶기
-    const per = 3, slides = [];
-    for (let i=0; i<images.length; i+=per){
-      slides.push(images.slice(i, i+per));
-    }
+          // 3장씩 묶기
+          const per = 3,
+            slides = [];
+          for (let i = 0; i < images.length; i += per) {
+            slides.push(images.slice(i, i + per));
+          }
 
-    // 섹션 마크업 생성 (h2 바로 아래에 삽입)
-    const wrap = document.createElement('section');
-    wrap.id = 'filmstrip-album';
-    wrap.className = 'mt-4';
-    wrap.innerHTML = `
+          // 섹션 마크업 생성 (h2 바로 아래에 삽입)
+          const wrap = document.createElement("section");
+          wrap.id = "filmstrip-album";
+          wrap.className = "mt-4";
+          wrap.innerHTML = `
       <div class="d-flex justify-content-between align-items-end mb-2">
         <h2 class="mb-0">🎞️ 추억 앨범</h2>
         <small class="text-muted">썸네일 클릭으로 이동</small>
@@ -742,19 +872,27 @@
 
       <div id="filmCarousel" class="carousel slide" data-bs-ride="false">
         <div class="carousel-inner" style='border-radius: 10px;'>
-          ${slides.map((g,idx)=>`
-            <div class="carousel-item ${idx===0?'active':''}">
+          ${slides
+            .map(
+              (g, idx) => `
+            <div class="carousel-item ${idx === 0 ? "active" : ""}">
               <div class="film-frame">
                 <div class="row g-3 px-3">
-                  ${g.map(o=>`
+                  ${g
+                    .map(
+                      (o) => `
                     <div class="col-12 col-md-4">
                       <img class="film-img" src="${o.src}" alt="${o.alt}">
                     </div>
-                  `).join('')}
+                  `
+                    )
+                    .join("")}
                 </div>
               </div>
             </div>
-          `).join('')}
+          `
+            )
+            .join("")}
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#filmCarousel" data-bs-slide="prev">
@@ -768,145 +906,158 @@
       </div>
 
       <div class="thumbs d-flex gap-2 justify-content-center mt-3" id="filmThumbs">
-        ${slides.map((g,idx)=>`
-          <button class="btn p-0 border-0 ${idx===0?'active':''}"
+        ${slides
+          .map(
+            (g, idx) => `
+          <button class="btn p-0 border-0 ${idx === 0 ? "active" : ""}"
                   data-bs-target="#filmCarousel" data-bs-slide-to="${idx}"
-                  aria-label="${idx+1}번째 슬라이드">
-            <img src="${g[0]?.src || ''}" alt="thumb${idx+1}">
+                  aria-label="${idx + 1}번째 슬라이드">
+            <img src="${g[0]?.src || ""}" alt="thumb${idx + 1}">
           </button>
-        `).join('')}
+        `
+          )
+          .join("")}
       </div>
     `;
 
-    const h2 = albumSection.querySelector('h2');
-    (h2 || albumSection.firstElementChild)?.insertAdjacentElement('afterend', wrap);
+          const h2 = albumSection.querySelector("h2");
+          (h2 || albumSection.firstElementChild)?.insertAdjacentElement(
+            "afterend",
+            wrap
+          );
 
-    // ✅ 이 한 줄 추가: 필름스트립이 있음을 표시 → CSS가 기존 그리드 숨김
-    albumSection.classList.add('with-filmstrip');
+          // ✅ 이 한 줄 추가: 필름스트립이 있음을 표시 → CSS가 기존 그리드 숨김
+          albumSection.classList.add("with-filmstrip");
 
-    // 썸네일-슬라이드 동기화
-    const carouselEl = wrap.querySelector('#filmCarousel');
-    const thumbsBar = wrap.querySelectorAll('#filmThumbs button');
+          // 썸네일-슬라이드 동기화
+          const carouselEl = wrap.querySelector("#filmCarousel");
+          const thumbsBar = wrap.querySelectorAll("#filmThumbs button");
 
-    thumbsBar.forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        thumbsBar.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-      });
-    });
+          thumbsBar.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              thumbsBar.forEach((b) => b.classList.remove("active"));
+              btn.classList.add("active");
+            });
+          });
 
-    carouselEl.addEventListener('slid.bs.carousel', (e)=>{
-      const idx = e.to;
-      thumbsBar.forEach(b=>b.classList.remove('active'));
-      thumbsBar[idx]?.classList.add('active');
-    });
+          carouselEl.addEventListener("slid.bs.carousel", (e) => {
+            const idx = e.to;
+            thumbsBar.forEach((b) => b.classList.remove("active"));
+            thumbsBar[idx]?.classList.add("active");
+          });
 
-    albumSection.dataset.filmstripReady = '1'; // 재생성 방지
-  }
+          albumSection.dataset.filmstripReady = "1"; // 재생성 방지
+        }
 
-  // 1) “추억 앨범 보기” 버튼 눌렀을 때 생성
-  openBtn?.addEventListener('click', ()=>{
-    // 앨범 섹션이 보이도록 토글된 직후 DOM이 준비되니 약간 뒤에 실행
-    setTimeout(buildFilmstripFromAlbum, 0);
-  });
+        // 1) “추억 앨범 보기” 버튼 눌렀을 때 생성
+        openBtn?.addEventListener("click", () => {
+          // 앨범 섹션이 보이도록 토글된 직후 DOM이 준비되니 약간 뒤에 실행
+          setTimeout(buildFilmstripFromAlbum, 0);
+        });
 
-  // 2) 바로 #album 해시로 진입한 경우(새로고침 등)도 대비
-  if (location.hash === '#album') {
-    // 기존 해시 처리 스크립트가 섹션 토글한 뒤 실행되도록 약간 지연
-    window.addEventListener('load', ()=> setTimeout(buildFilmstripFromAlbum, 50));
-  }
-})();
-</script>
-<script>
-/* 화면 가로/세로 비율에 맞춰 썸네일 너비(--thumb-w) 동적 조정 */
-(function(){
-  function updateThumbSize(){
-    const wrappers = document.querySelectorAll('#filmstrip-section, #filmstrip-album');
-    if(!wrappers.length) return;
+        // 2) 바로 #album 해시로 진입한 경우(새로고침 등)도 대비
+        if (location.hash === "#album") {
+          // 기존 해시 처리 스크립트가 섹션 토글한 뒤 실행되도록 약간 지연
+          window.addEventListener("load", () =>
+            setTimeout(buildFilmstripFromAlbum, 50)
+          );
+        }
+      })();
+    </script>
+    <script>
+      /* 화면 가로/세로 비율에 맞춰 썸네일 너비(--thumb-w) 동적 조정 */
+      (function () {
+        function updateThumbSize() {
+          const wrappers = document.querySelectorAll(
+            "#filmstrip-section, #filmstrip-album"
+          );
+          if (!wrappers.length) return;
 
-    const w = Math.max(1, window.innerWidth);
-    const h = Math.max(1, window.innerHeight);
-    const ratio = w / h;                // >1: 가로형(랜드스케이프), <=1: 세로형(포트레이트)
+          const w = Math.max(1, window.innerWidth);
+          const h = Math.max(1, window.innerHeight);
+          const ratio = w / h; // >1: 가로형(랜드스케이프), <=1: 세로형(포트레이트)
 
-    // 기본 크기 계산: 세로형은 폭 기준, 가로형은 높이 기준으로 산정
-    // (최소 64px ~ 최대 128px 안에서 스무딩)
-    const base = ratio > 1
-      ? Math.min(128, Math.max(64, Math.round(h * 0.12)))   // landscape: 높이의 12%
-      : Math.min(128, Math.max(64, Math.round(w * 0.22)));  // portrait: 너비의 22%
+          // 기본 크기 계산: 세로형은 폭 기준, 가로형은 높이 기준으로 산정
+          // (최소 64px ~ 최대 128px 안에서 스무딩)
+          const base =
+            ratio > 1
+              ? Math.min(128, Math.max(64, Math.round(h * 0.12))) // landscape: 높이의 12%
+              : Math.min(128, Math.max(64, Math.round(w * 0.22))); // portrait: 너비의 22%
 
-    wrappers.forEach(el => el.style.setProperty('--thumb-w', base + 'px'));
-  }
+          wrappers.forEach((el) =>
+            el.style.setProperty("--thumb-w", base + "px")
+          );
+        }
 
-  // 최초/리사이즈/회전 변화마다 갱신
-  window.addEventListener('resize', updateThumbSize);
-  window.addEventListener('orientationchange', updateThumbSize);
-  window.addEventListener('load', updateThumbSize);
-  updateThumbSize();
-})();
-</script>
-<script>
-/* 슬라이드 시점에 릴 가속/킥 클래스 토글 */
-(function(){
-  const film = document.getElementById('filmCarousel');
-  if(!film) return;
+        // 최초/리사이즈/회전 변화마다 갱신
+        window.addEventListener("resize", updateThumbSize);
+        window.addEventListener("orientationchange", updateThumbSize);
+        window.addEventListener("load", updateThumbSize);
+        updateThumbSize();
+      })();
+    </script>
+    <script>
+      /* 슬라이드 시점에 릴 가속/킥 클래스 토글 */
+      (function () {
+        const film = document.getElementById("filmCarousel");
+        if (!film) return;
 
-  film.addEventListener('slide.bs.carousel', ()=>{
-    film.classList.add('reel-spin');          // 가속 + 킥 ON
-    setTimeout(()=> film.classList.remove('reel-spin'), 700); // 혹시 모를 누락 대비 자동 해제
-  });
+        film.addEventListener("slide.bs.carousel", () => {
+          film.classList.add("reel-spin"); // 가속 + 킥 ON
+          setTimeout(() => film.classList.remove("reel-spin"), 700); // 혹시 모를 누락 대비 자동 해제
+        });
 
-  film.addEventListener('slid.bs.carousel', ()=>{
-    film.classList.remove('reel-spin');       // 슬라이드 완료 시 해제
-  });
-})();
-</script>
-<script>
-/* Film Overlay Injector: 생성된 모든 .film-frame에 스크래치/먼지/비네트 레이어 추가 */
-(function(){
-  function addOverlays(root=document){
-    const frames = root.querySelectorAll?.('.film-frame') ?? [];
-    frames.forEach(f=>{
-      if (f.dataset.overlayReady === '1') return;
-      ['overlay-scratches','overlay-dust','overlay-vignette'].forEach(cls=>{
-        const d = document.createElement('div');
-        d.className = cls;
-        f.appendChild(d);
-      });
-      f.dataset.overlayReady = '1';
-    });
-  }
+        film.addEventListener("slid.bs.carousel", () => {
+          film.classList.remove("reel-spin"); // 슬라이드 완료 시 해제
+        });
+      })();
+    </script>
+    <script>
+      /* Film Overlay Injector: 생성된 모든 .film-frame에 스크래치/먼지/비네트 레이어 추가 */
+      (function () {
+        function addOverlays(root = document) {
+          const frames = root.querySelectorAll?.(".film-frame") ?? [];
+          frames.forEach((f) => {
+            if (f.dataset.overlayReady === "1") return;
+            ["overlay-scratches", "overlay-dust", "overlay-vignette"].forEach(
+              (cls) => {
+                const d = document.createElement("div");
+                d.className = cls;
+                f.appendChild(d);
+              }
+            );
+            f.dataset.overlayReady = "1";
+          });
+        }
 
-  // 처음 한 번 적용
-  addOverlays(document);
-  
+        // 처음 한 번 적용
+        addOverlays(document);
 
-  // 이후 동적으로 생성되는 필름 프레임에도 자동 적용
-  const mo = new MutationObserver(muts=>{
-    for(const m of muts){
-      for(const n of m.addedNodes){
-        if(n.nodeType!==1) continue;
-        if(n.matches?.('.film-frame')) addOverlays(n);
-        else addOverlays(n);
-      }
-    }
-  });
-  mo.observe(document.body, { childList:true, subtree:true });
+        // 이후 동적으로 생성되는 필름 프레임에도 자동 적용
+        const mo = new MutationObserver((muts) => {
+          for (const m of muts) {
+            for (const n of m.addedNodes) {
+              if (n.nodeType !== 1) continue;
+              if (n.matches?.(".film-frame")) addOverlays(n);
+              else addOverlays(n);
+            }
+          }
+        });
+        mo.observe(document.body, { childList: true, subtree: true });
 
-  // 가로/세로 전환이나 리사이즈 시 미세 강도 조절(선택)
-  function tuneByViewport(){
-    const landscape = window.innerWidth > window.innerHeight;
-    document.querySelectorAll('.film-frame').forEach(f=>{
-      f.style.setProperty('--scratch-opacity', landscape ? '.2' : '.25');
-      f.style.setProperty('--dust-opacity', landscape ? '.1' : '.14');
-    });
-  }
-  window.addEventListener('resize', tuneByViewport);
-  window.addEventListener('orientationchange', tuneByViewport);
-  window.addEventListener('load', tuneByViewport);
-  tuneByViewport();
-})();
-</script>
-
-</body>
-
+        // 가로/세로 전환이나 리사이즈 시 미세 강도 조절(선택)
+        function tuneByViewport() {
+          const landscape = window.innerWidth > window.innerHeight;
+          document.querySelectorAll(".film-frame").forEach((f) => {
+            f.style.setProperty("--scratch-opacity", landscape ? ".2" : ".25");
+            f.style.setProperty("--dust-opacity", landscape ? ".1" : ".14");
+          });
+        }
+        window.addEventListener("resize", tuneByViewport);
+        window.addEventListener("orientationchange", tuneByViewport);
+        window.addEventListener("load", tuneByViewport);
+        tuneByViewport();
+      })();
+    </script>
+  </body>
 </html>
